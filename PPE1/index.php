@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h2 class="animation animated-item-1">Que concerne votre demande ?</h2>
+                                    <h2 class="animation animated-item-1">Que concerne votre demande</h2>
                                     <select class="form-control animation animated-item-2">
                                         <option>BJ</option>
                                     </select>

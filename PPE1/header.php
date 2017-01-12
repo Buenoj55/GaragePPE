@@ -47,7 +47,7 @@
 			
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="/PPE1/index.php">Home</a></li>
+                    <li><a href="/PPE1/index.php">Accueil</a></li>
                     <li><a href="/PPE1/Reservation/Reservation.php">Prendre rendez-vous</a></li>
                     <li><a href="/PPE1/portfolio.html">Portfolio</a></li>
                     <li class="dropdown">

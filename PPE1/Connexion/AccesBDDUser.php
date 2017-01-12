@@ -3,7 +3,7 @@
 
 	function Inscription()
 	{
-		$unModele = new Modele("localhost", "Garagetemp", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "");
 
 		$unModele->renseigner("Particuliers");
 
@@ -26,7 +26,7 @@
 
 	function Connexion()
 	{
-		$unModele = new Modele("localhost", "Garagetemp", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "");
 
 		$unModele->renseigner("Clients");
 
@@ -42,7 +42,7 @@
 
 	function selectInfo()
 	{
-		$unModele = new Modele("localhost", "Garagetemp", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "");
 
 		$unModele->renseigner("Particuliers");
 

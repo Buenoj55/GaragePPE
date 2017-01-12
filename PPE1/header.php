@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <li><a href="/PPE1/index.php">Accueil</a></li>
-                    <li><a href="/PPE1/Reservation/Reservation.php">Prendre rendez-vous</a></li>
+                    <li><a href="/PPE1/Reservation/Reservation.php">RDV</a></li>
                     <li><a href="/PPE1/portfolio.html">Portfolio</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>

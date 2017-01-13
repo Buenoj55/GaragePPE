@@ -135,6 +135,9 @@ CREATE TABLE IF NOT EXISTS PARTICULIERS
  ) 
  comment = "";
 
+ INSERT INTO Particuliers (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT)
+ VALUES ('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-Francois Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', '123456', '1');
+
 # -----------------------------------------------------------------------------
 #       TABLE : INTERVENTIONS
 # -----------------------------------------------------------------------------
@@ -173,6 +176,11 @@ CREATE TABLE IF NOT EXISTS TYPEVEHICULES
    , PRIMARY KEY (ID_TYPEVEHICULE) 
  ) 
  comment = "";
+
+ INSERT INTO TYPEVEHICULES VALUES ('Audi', 'A4');
+ INSERT INTO TYPEVEHICULES VALUES ('Audi', 'A3');
+ INSERT INTO TYPEVEHICULES VALUES ('Audi', 'A2');
+ INSERT INTO TYPEVEHICULES VALUES ('Audi', 'A1');
 
 # -----------------------------------------------------------------------------
 #       TABLE : FACTURES
@@ -267,6 +275,7 @@ CREATE TABLE IF NOT EXISTS CLIENTS
 CREATE TABLE IF NOT EXISTS ENTREPRISES
  (
    ID_CLIENT INTEGER NOT NULL AUTO_INCREMENT ,
+   NOM_ENTREPRISE VARCHAR(50) NOT NULL  ,
    NUMSIRET_ENTREPRISE INTEGER NULL  ,
    ACTIVITE_ENTREPRISE VARCHAR(32) NULL  ,
    ADR_CLIENT VARCHAR(32) NULL  ,

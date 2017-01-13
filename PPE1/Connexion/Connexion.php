@@ -58,11 +58,8 @@
                         {
                             $resultatID = selectInfo();
                             $_SESSION['ID_Client'] = $resultatID['ID_Client'];
-                            echo $_SESSION['ID_Client'];
                             $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
-                            echo $_SESSION['nom_Particulier'];
                             $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
-                            echo $_SESSION['prenom_Particulier'];
                             $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
                             $_SESSION['adr_Client'] = $resultatID['adr_Client'];
                             $_SESSION['CP_Client'] = $resultatID['CP_Client'];
@@ -76,7 +73,7 @@
                         }
                         else
                         {
-                            echo "Erreur";
+                            echo "Erreur sur l'identifiant ou le mot de passe";
                         }
                     }
                 ?>

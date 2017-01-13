@@ -89,6 +89,7 @@
 
                     <div id="Vehicule" class="center wow fadeInDown col-sm-12">
                         <h3 class="lead">Véhicule :</h3> 
+                        <h4>Vous pourrez rajouter d'autres véhicules plus tard si vous le souhaitez</h4>
 
                          <div class="col-sm-12">
                             <div class="col-sm-5 col-sm-offset-1"> 

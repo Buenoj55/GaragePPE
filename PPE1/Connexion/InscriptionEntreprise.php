@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Activité *</label>
-                                <input type="ext" name="activite_Entreprise" class="form-control" required="required">
+                                <input type="text" name="activite_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Téléphone *</label>

@@ -24,6 +24,28 @@
 		$unModele->insert($tab);
 	}
 
+	function InscriptionEntreprise()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Entreprises");
+
+		$tab = array(
+				"nom_Entreprise"=>$_POST['nom_Entreprise'],
+				"numSIRET_Entreprise"=>$_POST['numSIRET_Entreprise'],
+				"activite_Entreprise"=>$_POST['activite_Entreprise'],
+				"adr_Client"=>$_POST['adr_Client'],
+				"CP_Client"=>$_POST['CP_Client'],
+				"ville_Client"=>$_POST['ville_Client'],
+				"mail_Client"=>$_POST['mail_Client'],
+				"tel_Client"=>$_POST['tel_Client'],
+				"mdp_Client"=>$_POST['mdp_Client'],
+				"etat_Client"=>$_POST['etat_Client']
+			);
+
+		$unModele->insert($tab);
+	}
+
 	function Connexion()
 	{
 		$unModele = new Modele("localhost", "Garage", "root", "");

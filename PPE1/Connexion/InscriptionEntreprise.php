@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,36 +20,29 @@
             <div class="center wow fadeInDown">      
                 <h2>Inscription</h2>
                 <p class="lead">Remplir avec sincérité toutes les informations demandées.</p>
-            </div>
+            </div> 
             <div class="col-sm-12">
                 <ul class="pagination pull-right">
-                    <li id="Particulier" class="active"><a href="Inscription.php">Particulier</a></li>
-                    <li id="Entreprise"><a href="InscriptionEntreprise.php">Entreprise</a></li>
+                    <li id="Particulier"><a href="Inscription.php">Particulier</a></li>
+                    <li id="Entreprise" class="active"><a href="InscriptionEntreprise.php">Entreprise</a></li>
                 </ul>
             </div>
             <div class="row contact-wrap wow fadeInDown"> 
                 <div class="status alert alert-success" style="display: none"></div>
                 <form id="main-contact-form" class="contact-form" name="contact-form" method="post">
                     <div id="Infos">
-                        <div class="col-sm-12 col-sm-offset-1">
-                            <div class="form-group">
-                                <div class="col-sm-1 col-sm-offset-1"><label>Civilité *</label></div>
-                                <div class="col-sm-1"><input type="radio" name="civilite_Particulier" value="Homme">Homme</div>
-                                <div class="col-sm-1"><input type="radio" name="civilite_Particulier" value="Femme">Femme</div>
-                            </div>
-                        </div>
                         <div class="col-sm-5 col-sm-offset-1">
                             <div class="form-group">
                                 <label>Nom *</label>
-                                <input type="text" name="nom_Particulier" class="form-control" required="required">
+                                <input type="text" name="nom_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
-                                <label>Prénom *</label>
-                                <input type="text" name="prenom_Particulier" class="form-control" required="required">
+                                <label>Numéro SIRET *</label>
+                                <input type="text" name="numSIRET_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
-                                <label>Date de naissance *</label>
-                                <input type="date" name="dateNaiss_Particulier" class="form-control" required="required">
+                                <label>Activité *</label>
+                                <input type="date" name="activite_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Téléphone *</label>
@@ -94,7 +91,7 @@
                     </div>
 
                     <div id="Vehicule" class="center wow fadeInDown col-sm-12">
-                        <h3 class="lead">Véhicule :</h3> 
+                        <h3 class="lead">Véhicule :</h3>
                         <h4>Vous pourrez rajouter d'autres véhicules plus tard si vous le souhaitez</h4>
 
                          <div class="col-sm-12">
@@ -132,7 +129,7 @@
                     if(isset($_POST['Valider']))
                     {
                         include("AccesBDDUser.php");
-                        Inscription();
+                        InscriptionEntreprise();
                     }
                 ?>
 
@@ -173,7 +170,7 @@
                 </script>
             </div><!--/.row-->
         </div><!--/.container-->
-    </section><!--/#contact-page--> 
+    </section><!--/#contact-page-->
 
     <footer id="footer" class="midnight-blue">
         <div class="container">

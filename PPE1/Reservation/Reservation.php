@@ -17,55 +17,57 @@
 
     <section id="feature" class="transparent-bg">
         <div class="container">
-           <div class="center wow fadeInDown">
-                <form method="post">
-                    <h2>Calendrier</h2>
+            <div class="center wow fadeInDown">
+                <div class="col-lg-12">
+                    <form method="post">
+                        <h2>Prendre rendez-vous</h2>
 
-                    <legend>Sélectionner la date de réservation : </legend>
+                        <legend>Sélectionner la date de réservation : </legend>
 
-                    <div class="datepicker-wrap">
-                        <input name="DateReservation" class="input-text full-width hasDatepicker" type="text">
-                    </div>
+                        <div class="datepicker-wrap">
+                            <input name="DateReservation" class="input-text full-width hasDatepicker" type="text">
+                        </div>
 
-                    <input type="hidden" name="DateReservation">
+                        <input type="hidden" name="DateReservation">
 
-                    <div id="my-calendar" class="my-calendar">
-                        <!-- show date events with a modal window -->
-                        <script type="application/javascript">
-                            $(document).ready(function () {
-                                $('.datepicker-wrap').click(function() {
-                                    $('div[id*=zabuto_calendar]').fadeIn('400');
+                        <div id="my-calendar" class="my-calendar">
+                            <!-- show date events with a modal window -->
+                            <script type="application/javascript">
+                                $(document).ready(function () {
+                                    $('.datepicker-wrap').click(function() {
+                                        $('div[id*=zabuto_calendar]').fadeIn('400');
+                                    });
+
+                                /*Hide if click outside */
+                                    $('body').click(function(e){
+                                        if(!$(e.target).closest('.zabuto_calendar *,.datepicker-wrap,span[class*="glyphicon-chevron"],.calendar-month-navigation').length){
+                                        }
+                                    })
+
+                                /* Set the calendar */
+                                    $("#my-calendar").zabuto_calendar({
+                                        show_next: true,
+                                        show_previous: false,
+                                        language: "fr",
+                                        cell_border: false
+                                    });
+                                /* Get date and Hide*/
+                                    $('.zabuto_calendar').delegate('.day','click',function(){
+                                        var regExp = /\d*-\d+-\d+/;
+                                        var date = regExp.exec($(this).attr('id'));
+                                        var formatedDate = date[0].replace(/(\d*)-(\d+)-(\d+)/,"$3/$2/$1");
+                                        $('.hasDatepicker').val(formatedDate);
+                                        $('[name="DateReservation"]').val(formatedDate);
+                                        $('[name="DateReservation"]').attr('value',formatedDate);
+                                        Cookies.set('DateReservation',formatedDate)
+                                    })
                                 });
+                            </script>
+                        </div>
 
-                            /*Hide if click outside */
-                                $('body').click(function(e){
-                                    if(!$(e.target).closest('.zabuto_calendar *,.datepicker-wrap,span[class*="glyphicon-chevron"],.calendar-month-navigation').length){
-                                    }
-                                })
-
-                            /* Set the calendar */
-                                $("#my-calendar").zabuto_calendar({
-                                    show_next: true,
-                                    show_previous: false,
-                                    language: "fr",
-                                    cell_border: false
-                                });
-                            /* Get date and Hide*/
-                                $('.zabuto_calendar').delegate('.day','click',function(){
-                                    var regExp = /\d*-\d+-\d+/;
-                                    var date = regExp.exec($(this).attr('id'));
-                                    var formatedDate = date[0].replace(/(\d*)-(\d+)-(\d+)/,"$3/$2/$1");
-                                    $('.hasDatepicker').val(formatedDate);
-                                    $('[name="DateReservation"]').val(formatedDate);
-                                    $('[name="DateReservation"]').attr('value',formatedDate);
-                                    Cookies.set('DateReservation',formatedDate)
-                                })
-                            });
-                        </script>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg" value="Valider" name='Valider'>Valider la réservation</button>
-                </form>
+                        <button type="submit" class="btn btn-primary btn-lg" value="Valider" name='Valider'>Valider la réservation</button>
+                    </form>
+                </div>
             </div>
         </div><!--/.container-->
     </section><!--/#feature-->
@@ -161,12 +163,5 @@
             </div>
         </div>
     </footer><!--/#footer-->
-
-    <script src="js/jquery.js"></script>
-    <script src="/PPE1/js/bootstrap.min.js"></script>
-    <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
-    <script src="/PPE1/js/jquery.isotope.min.js"></script>
-    <script src="/PPE1/js/main.js"></script>
-    <script src="/PPE1/js/wow.min.js"></script>
 </body>
 </html>

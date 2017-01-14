@@ -38,11 +38,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Numéro SIRET *</label>
-                                <input type="text" name="numSIRET_Entreprise" class="form-control" required="required">
+                                <input type="number" name="numSIRET_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Activité *</label>
-                                <input type="date" name="activite_Entreprise" class="form-control" required="required">
+                                <input type="ext" name="activite_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Téléphone *</label>

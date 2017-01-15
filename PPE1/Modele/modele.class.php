@@ -74,15 +74,27 @@
 
       $requete = "SELECT COUNT(*) as nb FROM ".$this->table." WHERE ".$chaineClause.";";
 
-      var_dump($requete);
-
       $select = $this->pdo->prepare($requete);
       $select->execute($donnees);
       $unResultat2 = $select->fetch();
 
-      var_dump($donnees);
-
       return $unResultat2;
+    }
+
+    public function selectDistinct($column)
+    {
+      if($this->pdo != null)
+      {
+        $requete = "SELECT DISTINCT ".$column." FROM ".$this->table.";";
+        $select = $this->pdo->prepare ($requete);
+        $select->execute(); // execution de la requete
+        $resultats = $select->fetchAll();
+        return $resultats;
+      }
+      else
+      {
+        return null;
+      }
     }
 
     public function insert($tab)

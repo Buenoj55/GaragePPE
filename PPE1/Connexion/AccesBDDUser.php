@@ -78,4 +78,26 @@
 
 		return $resultatID;
 	}
+
+	function selectMarque()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("TypeVehicules");
+
+		$resultatMarque = $unModele->selectDistinct("marque_Vehicule");
+
+		return $resultatMarque;
+	}
+
+	function selectModele()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("TypeVehicules");
+
+		$resultatModele = $unModele->selectDistinct("modele_Vehicule");
+
+		return $resultatModele;
+	}
 ?>

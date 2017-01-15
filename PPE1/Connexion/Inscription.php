@@ -1,3 +1,7 @@
+<?php
+    include('AccesBDDUser.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,20 +98,31 @@
                     </div>
 
                     <div id="Vehicule" class="center wow fadeInDown col-sm-12">
-                        <h3 class="lead">Véhicule :</h3> 
-                        <h4>Vous pourrez rajouter d'autres véhicules plus tard si vous le souhaitez</h4>
+                        <h3 class="lead">Véhicule :</h3>
 
                          <div class="col-sm-12">
                             <div class="col-sm-5 col-sm-offset-1"> 
                                 <label>Marque *</label>                     
                                 <select class="form-group">
-                                    <option name="marque_Vehicule" value="Audi" class="form-control" required="required">Audi</option>
+                                    <?php
+                                        $resultatMarques = selectMarque();
+                                        foreach ($resultatMarques as $resultatMarque)
+                                        {
+                                            echo '<option name="marque_Vehicule" value="'.$resultatMarque['marque_Vehicule'].'" class="form-control" required="required">'.$resultatMarque['marque_Vehicule'].'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-sm-5 col-sm-offset-1">                      
                                 <label>Modèle *</label>                     
                                 <select class="form-group">
-                                    <option name="modele_Vehicule" value="A4" class="form-control" required="required">A4</option>
+                                    <?php
+                                        $resultatModeles = selectModele();
+                                        foreach ($resultatModeles as $resultatModele)
+                                        {
+                                            echo '<option name="marque_Vehicule" value="'.$resultatModele['modele_Vehicule'].'" class="form-control" required="required">'.$resultatModele['modele_Vehicule'].'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -131,7 +146,6 @@
                 <?php
                     if(isset($_POST['Valider']))
                     {
-                        include("AccesBDDUser.php");
                         Inscription();
                     }
                 ?>

@@ -177,3 +177,8 @@ div.datepicker-wrap input.hasDatepicker {
         padding: 2px 1px;
     }
 }
+
+/* Personnal touch */
+.day:hover {
+     background-color: #ddd;
+}

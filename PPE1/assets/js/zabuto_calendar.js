@@ -275,7 +275,7 @@ $.fn.zabuto_calendar = function (options) {
                         var dateId = $calendarElement.attr('id') + '_' + dateAsString(year, month, currDayOfMonth);
                         var dayId = dateId + '_day';
 
-                        var $dayElement = $('<div id="' + dayId + '" class="day" >' + currDayOfMonth + '</>');
+                        var $dayElement = $('<div id="' + dayId + '" class="day" name="day" >' + currDayOfMonth + '</>');
                         $dayElement.data('day', currDayOfMonth);
 
                         if ($calendarElement.data('showToday') === true) {

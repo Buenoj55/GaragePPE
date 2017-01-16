@@ -40,7 +40,7 @@
 
     public function selectWhere($champs, $where)
     {
-      $chaineChamps = implode (",", $champs);
+      $chaineChamps = implode (", ", $champs);
       $clause = array();
       $donnees = array();
 
@@ -53,9 +53,13 @@
 
       $requete = "SELECT ".$chaineChamps." FROM ".$this->table." WHERE ".$chaineClause.";";
 
+      var_dump($requete);
+
       $select = $this->pdo->prepare($requete);
       $select->execute($donnees);
       $unResultat = $select->fetch();
+
+      var_dump($unResultat);
 
       return $unResultat;
     }

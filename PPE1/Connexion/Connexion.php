@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,26 +50,37 @@
                         include("AccesBDDUser.php");
                         $resultat = Connexion();
 
-                        if ($resultat['nb'] == 1)
+                        if (!isset($_POST['mail_Client'])) 
                         {
-                            $resultatID = selectInfo();
-                            $_SESSION['ID_Client'] = $resultatID['ID_Client'];
-                            $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
-                            $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
-                            $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
-                            $_SESSION['adr_Client'] = $resultatID['adr_Client'];
-                            $_SESSION['CP_Client'] = $resultatID['CP_Client'];
-                            $_SESSION['ville_Client'] = $resultatID['ville_Client'];
-                            $_SESSION['mail_Client'] = $resultatID['mail_Client'];
-                            $_SESSION['tel_Client'] = $resultatID['tel_Client'];
-                            $_SESSION['etat_Client'] = $resultatID['etat_Client'];
-
-                            header('Location: ../index.php');
-
+                            echo "Entrer une adresse mail.";
+                        }
+                        else if(!isset($_POST['mdp_Client']))
+                        {
+                            echo "Entrer un mot de passe";
                         }
                         else
                         {
-                            echo "Erreur sur l'identifiant ou le mot de passe";
+                            if ($resultat['nb'] == 1)
+                            {
+                                session_start();
+                                $resultatID = selectInfo();
+                                $_SESSION['ID_Client'] = $resultatID['ID_Client'];
+                                $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
+                                $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
+                                $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
+                                $_SESSION['adr_Client'] = $resultatID['adr_Client'];
+                                $_SESSION['CP_Client'] = $resultatID['CP_Client'];
+                                $_SESSION['ville_Client'] = $resultatID['ville_Client'];
+                                $_SESSION['mail_Client'] = $resultatID['mail_Client'];
+                                $_SESSION['tel_Client'] = $resultatID['tel_Client'];
+                                $_SESSION['etat_Client'] = $resultatID['etat_Client'];
+
+                                header('Location: ../Profil/Profil.php');
+                            }
+                            else
+                            {
+                                echo "Erreur sur l'identifiant ou le mot de passe";
+                            }
                         }
                     }
                 ?>

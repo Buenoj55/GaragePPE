@@ -70,9 +70,7 @@
 
 		$champs = array("ID_Client", "nom_Particulier", "prenom_Particulier", "dateNaiss_Particulier", "adr_Client", "CP_Client", "ville_Client", "mail_Client", "tel_Client", "etat_Client");
 
-		$tab = array(
-				"mail_Client"=>$_POST['mail_Client']
-			);
+		$tab = array("mail_Client"=>$_POST['mail_Client']);
 
 		$resultatID = $unModele->selectWhere($champs, $tab);
 
@@ -99,5 +97,74 @@
 		$resultatModele = $unModele->selectDistinct("modele_Vehicule");
 
 		return $resultatModele;
+	}
+
+	function selectTypeVehicule()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("TypeVehicules");
+
+		$champs = array("ID_TypeVehicule");
+ 
+		$tab = array(
+			"marque_Vehicule"=>$_POST['marque_Vehicule'], 
+			"modele_Vehicule"=>$_POST['modele_Vehicule']
+			);
+
+			$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
+
+		return $resultatTypeVehicule;
+	}
+
+	function selectIDClient()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Clients");
+
+		$champs = array("ID_Client");
+ 
+		$tab = array(
+			"mail_Client"=>$_POST['mail_Client']
+			);
+
+			$resultatIDClient = $unModele->selectWhere($champs, $tab);
+
+		return $resultatIDClient;
+	}
+
+	function ajoutVehicule($idtv, $idc)
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Vehicules");
+
+		$tab = array(
+				"ID_TypeVehicule"=>$idtv,
+				"ID_Client"=>$idc
+			);
+
+		$unModele->insert($tab);
+	}
+
+	function vehiculeClient($idc)
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("ClientAndVehicule");
+
+		$champs = array(
+				"marque_Vehicule",
+				"modele_Vehicule"
+			);
+ 
+		$tab = array(
+				"ID_Client"=>$idc
+			);
+
+			$resultatVehicule = $unModele->selectWhere($champs, $tab);
+
+		return $resultatVehicule;
 	}
 ?>

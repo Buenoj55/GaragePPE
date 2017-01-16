@@ -1,10 +1,12 @@
 <?php
 	include('../Modele/modele.class.php');
 
-	validerReservation()
+	function ValiderReservation()
 	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
 		$unModele->renseigner("RDV");
-		
+
 		$tab = array(
 				"civilite_Particulier"=>$_POST['civilite_Particulier'],
 				"nom_Particulier"=>$_POST['nom_Particulier'],

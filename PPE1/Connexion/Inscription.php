@@ -97,40 +97,38 @@
                         </div>   
                     </div>
 
-                    <div id="Vehicule" class="center wow fadeInDown col-sm-12">
-                        <h3 class="lead">Véhicule :</h3>
+                    <div id="Vehicule" class="center wow fadeInDown col-lg-12">
+                        <h3 class="lead">Ajouter un véhicule :</h3>
 
-                         <div class="col-sm-12">
-                            <div class="col-sm-5 col-sm-offset-1"> 
-                                <label>Marque *</label>                     
-                                <select class="form-group">
-                                    <?php
-                                        $resultatMarques = selectMarque();
-                                        foreach ($resultatMarques as $resultatMarque)
-                                        {
-                                            echo '<option name="marque_Vehicule" value="'.$resultatMarque['marque_Vehicule'].'" class="form-control" required="required">'.$resultatMarque['marque_Vehicule'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="col-sm-5 col-sm-offset-1">                      
-                                <label>Modèle *</label>                     
-                                <select class="form-group">
-                                    <?php
-                                        $resultatModeles = selectModele();
-                                        foreach ($resultatModeles as $resultatModele)
-                                        {
-                                            echo '<option name="marque_Vehicule" value="'.$resultatModele['modele_Vehicule'].'" class="form-control" required="required">'.$resultatModele['modele_Vehicule'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                            </div>
+                        <div class="col-sm-5 col-sm-offset-1">
+                            <label>Marque *</label>                     
+                            <select name="marque_Vehicule" class="form-control">
+                                <?php
+                                    $resultatMarques = selectMarque();
+                                    foreach ($resultatMarques as $resultatMarque)
+                                    {
+                                        echo '<option value="'.$resultatMarque['marque_Vehicule'].'">'.$resultatMarque['marque_Vehicule'].'</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-sm-5 col-sm-offset-1">                      
+                            <label>Modèle *</label>                     
+                            <select name="modele_Vehicule" class="form-control">
+                                <?php
+                                    $resultatModeles = selectModele();
+                                    foreach ($resultatModeles as $resultatModele)
+                                    {
+                                        echo '<option value="'.$resultatModele['modele_Vehicule'].'">'.$resultatModele['modele_Vehicule'].'</option>';
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
 
                     <input type="hidden" name="etat_Client" value="1">
 
-                    <button type="submit" name="Valider" id="Valider" class="btn btn-primary btn-lg pull-right">Valider le formulaire</button>
+                    <button type="submit" name="Valider" id="Valider" class="btn btn-primary btn-lg">Valider le formulaire</button>
 
                     <div class="container">
                         <div class="col-sm-12">
@@ -147,6 +145,9 @@
                     if(isset($_POST['Valider']))
                     {
                         Inscription();
+                        $typeVehicule = selectTypeVehicule();
+                        $IDClient = selectIDClient();
+                        AjoutVehicule($typeVehicule['0'], $IDClient['0']);
                     }
                 ?>
 
@@ -173,7 +174,7 @@
                         document.getElementById('Vehicule').style.display = "none";
                         $('#Etape3').removeClass('active');
                         document.getElementById('Valider').style.display = "none";
-                    }); 
+                    });
 
                     $('#Etape3').click(function() {
                         document.getElementById('Infos').style.display = "none";
@@ -183,7 +184,7 @@
                         document.getElementById('Vehicule').style.display = "";
                         $('#Etape3').addClass('active');
                         document.getElementById('Valider').style.display = "";
-                    }); 
+                    });
                 </script>
             </div><!--/.row-->
         </div><!--/.container-->

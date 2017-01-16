@@ -91,7 +91,7 @@
                             <div class="col-sm-5 col-sm-offset-1">                      
                                 <div class="form-group">
                                     <label>Confirmer mot de passe *</label>
-                                    <input type="password" class="form-control" required="required">
+                                    <input type="password" name="confMdp_Client" class="form-control" required="required">
                                 </div>
                             </div>
                         </div>   
@@ -142,12 +142,19 @@
                 </form>
 
                 <?php
-                    if(isset($_POST['Valider']))
+                    if(isset($_POST['Valider']) && isset($_POST['confMdp_Client']))
                     {
-                        Inscription();
-                        $typeVehicule = selectTypeVehicule();
-                        $IDClient = selectIDClient();
-                        AjoutVehicule($typeVehicule['0'], $IDClient['0']);
+                        if ($_POST['mdp_Client'] != $_POST['confMdp_Client'])
+                        {
+                            echo "Les mot de passe ne correspondent pas";
+                        }
+                        else
+                        {
+                            Inscription();
+                            $typeVehicule = selectTypeVehicule();
+                            $IDClient = selectIDClient();
+                            AjoutVehicule($typeVehicule['0'], $IDClient['0']);
+                        }
                     }
                 ?>
 

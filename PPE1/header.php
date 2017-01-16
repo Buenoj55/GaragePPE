@@ -10,6 +10,7 @@
                                     <h7>Bienvenue '.$_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier'].'</h7>
                                     <a class="btn btn-primary btn-sm" class="navbar-form navbar-right inline-form" href="/PPE1/connexion/deconnexion.php" style="margin-top: 0.5%">Deconnexion</a>
                                 </div>';
+                            echo '<a href="/PPE1/Profil/Profil.php">Voir mon profil</a>';
                         }
                         else
                         {

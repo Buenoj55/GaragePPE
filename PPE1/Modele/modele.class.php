@@ -64,6 +64,32 @@
       return $unResultat;
     }
 
+    public function selectWhereAll($champs, $where)
+    {
+      $chaineChamps = implode (", ", $champs);
+      $clause = array();
+      $donnees = array();
+
+      foreach ($where as $cle => $valeur)
+      {
+        $clause[] = $cle." = :".$cle;
+        $donnees[":".$cle] = $valeur;
+      }
+      $chaineClause = implode(" AND ", $clause);
+
+      $requete = "SELECT ".$chaineChamps." FROM ".$this->table." WHERE ".$chaineClause.";";
+
+      var_dump($requete);
+
+      $select = $this->pdo->prepare($requete);
+      $select->execute($donnees);
+      $unResultat = $select->fetchAll();
+
+      var_dump($unResultat);
+
+      return $unResultat;
+    }
+
     public function selectCount($where)
     {
       $clause = array();

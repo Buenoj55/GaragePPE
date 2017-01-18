@@ -155,16 +155,36 @@
 		$unModele->renseigner("ClientAndVehicule");
 
 		$champs = array(
+				"ID_Vehicule",
 				"marque_Vehicule",
-				"modele_Vehicule"
+				"modele_Vehicule",
+				"immat_Vehicule",
+				"km_Vehicule",
+				"dateachat_Vehicule",
+				"couleur_Vehicule"
 			);
  
 		$tab = array(
 				"ID_Client"=>$idc
 			);
 
-			$resultatVehicule = $unModele->selectWhere($champs, $tab);
+			$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
 
 		return $resultatVehicule;
+	}
+
+	function nbVehicule()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Vehicules");
+
+		$tab = array(
+				"ID_Client" => $_SESSION['ID_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+		
+		return $resultat;
 	}
 ?>

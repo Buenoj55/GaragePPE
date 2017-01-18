@@ -69,7 +69,7 @@
                     </form>
 
                     <?php
-                        if (isset($_POST['SelectionDate']))
+                        if (isset($_POST['SelectionDate']) && !empty($_POST['DateReservation']))
                         {
                             include('AccesBDDReservation.php');
                             

@@ -150,17 +150,27 @@
                 <?php
                     if(isset($_POST['Valider']) && isset($_POST['confMdp_Client']))
                     {
+
                         if ($_POST['mdp_Client'] != $_POST['confMdp_Client'])
                         {
                             echo "Les mot de passe ne correspondent pas";
                         }
-                        else
+                        else 
                         {
+                            $verif = verifInscription();
+                            if ($verif > 0)
+                            {
+                                echo "Ce mail est déja utilisé, merci d'en renseigner un autre";
+                            }
+                            else
+                            {
                             Inscription();
                             $typeVehicule = selectTypeVehicule();
                             $IDClient = selectIDClient();
                             AjoutVehicule($typeVehicule['0'], $IDClient['0']);
+                            }
                         }
+
                     }
                 ?>
 

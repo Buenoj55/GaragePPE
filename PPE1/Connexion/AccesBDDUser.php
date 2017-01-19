@@ -26,7 +26,9 @@
 
 	function Inscription()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Particuliers");
 
@@ -40,7 +42,7 @@
 				"ville_Client"=>$_POST['ville_Client'],
 				"mail_Client"=>$_POST['mail_Client'],
 				"tel_Client"=>$_POST['tel_Client'],
-				"mdp_Client"=>$_POST['mdp_Client'],
+				"mdp_Client"=> sha1(sha1($_POST['mdp_Client'])),
 				"etat_Client"=>$_POST['etat_Client']
 			);
 
@@ -49,7 +51,9 @@
 
 	function InscriptionEntreprise()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Entreprises");
 
@@ -62,7 +66,7 @@
 				"ville_Client"=>$_POST['ville_Client'],
 				"mail_Client"=>$_POST['mail_Client'],
 				"tel_Client"=>$_POST['tel_Client'],
-				"mdp_Client"=>$_POST['mdp_Client'],
+				"mdp_Client"=> sha1(sha1($_POST['mdp_Client'])),
 				"etat_Client"=>$_POST['etat_Client']
 			);
 
@@ -71,13 +75,15 @@
 
 	function Connexion()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Clients");
 
 		$tab = array(
 				"mail_Client" => $_POST['mail_Client'],
-				"mdp_Client"=>$_POST['mdp_Client']
+				"mdp_Client"=> sha1(sha1($_POST['mdp_Client'])),
 			);
 
 		$resultat = $unModele->selectCount($tab);
@@ -87,7 +93,9 @@
 
 	function selectInfo()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Particuliers");
 
@@ -104,7 +112,9 @@
 
 	function selectMarque()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -115,7 +125,9 @@
 
 	function selectModele()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -126,7 +138,9 @@
 
 	function selectTypeVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -144,7 +158,9 @@
 
 	function selectIDClient()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Clients");
 
@@ -161,7 +177,9 @@
 
 	function ajoutVehicule($idtv, $idc)
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Vehicules");
 
@@ -179,7 +197,9 @@
 
 	function vehiculeClient($idc)
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("ClientAndVehicule");
 
@@ -204,7 +224,9 @@
 
 	function nbVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Vehicules");
 
@@ -221,7 +243,9 @@
 
 	function selectRDV()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("RDVClientVehicule");
 
@@ -246,7 +270,9 @@
 
 	function nbRDV()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("RDVClientVehicule");
 
@@ -261,7 +287,9 @@
 
 	function deleteVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
 		$unModele->renseigner("Vehicules");
 
@@ -270,5 +298,22 @@
 			);
 
 		$resultat = $unModele->delete($tab);
+	}
+
+	
+	function verifInscription()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "root");
+		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
+		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+
+		$unModele->renseigner("Clients");
+
+		$tab = array(
+				"mail_Client" => $_POST['mail_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+		return $resultat;	
 	}
 ?>

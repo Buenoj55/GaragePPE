@@ -36,9 +36,9 @@
                                 <div class="carousel-content">
                                     <h2 class="animation animated-item-1">Que concerne votre demande</h2>
                                     <select class="form-control animation animated-item-2">
-                                        <option>BJ</option>
+                                        <option>Contrôle technique</option>
                                     </select>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <a class="btn-slide animation animated-item-3" href="#">Devis</a>
                                 </div>
                             </div>
                             <div class="col-sm-10">
@@ -56,8 +56,8 @@
                             <div class="col-sm-6">
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">Prendre rendez-vous</h1>
-                                    <h2 class="animation animated-item-2">Vous pouvez </h2>
-                                    <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                                    <h2 class="animation animated-item-2">Vous pouvez réserver en avance un créneau dans notre garage où vous serez pris en charge par un de nos techniciens.</h2>
+                                    <a class="btn-slide animation animated-item-3" href="#">Réserver</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,8 @@
         </a>
     </section><!--/#main-slider-->
 
-    <section id="feature" >
+    <?php
+    /*<section id="feature" >
         <div class="container">
            <div class="center wow fadeInDown">
                 <h2>Features</h2>
@@ -670,7 +671,8 @@
                 </div><!--/.col-md-3-->
             </div>
         </div>
-    </section><!--/#bottom-->
+    </section><!--/#bottom-->*/
+    ?>
 
     <footer id="footer" class="midnight-blue">
         <div class="container">

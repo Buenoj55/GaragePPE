@@ -33,15 +33,13 @@
             					<th>Modèle</th>
             					<th>Immatriculation</th>
             					<th>Kilométrage</th>
-            					<th>Couleur</th>
             					<th>Date d'achat</th>
+            					<th>Couleur</th>
 	            			</thead>
 	            			<tbody>
 	        					<?php
 	        						$resultatVehicules = vehiculeClient($_SESSION['ID_Client']);
 	        						$nbVehicules = nbVehicule();
-
-	        						var_dump($nbVehicules);
 
 	        						if ($nbVehicules['nb'] != 0) 
 	        						{
@@ -52,9 +50,16 @@
 		        							for ($a = 4 ; $a < 7 ; $a++)
 		        							{ 
 		        								echo '<td class="col-sm-2">';
-		        								if (isset($resultatVehicules[$n][$a])) { echo $resultatVehicules[$n][$a]; }
-		        								else { echo '<input class="col-sm-10" name="input'.$n.''.$a.'">'; }
-		        								echo '<a type="submit" name="Modif'.$n.''.$a.'" class="pull-right"><span class="glyphicon glyphicon-ok-sign"></span></a></td>';
+		        								if (isset($resultatVehicules[$n][$a]))
+		        								{
+		        									if($a == 5) { echo dateFormatJJMMAAAA($resultatVehicules[$n][$a]).'</td>'; }
+		        									else { echo $resultatVehicules[$n][$a].'</td>'; }
+		        								}
+		        								else
+		        								{
+		        									echo '<input class="col-sm-10" name="input'.$n.''.$a.'">';
+		        									echo '<a type="submit" name="Modif'.$n.''.$a.'" class="pull-right"><span class="glyphicon glyphicon-ok-sign"></span></a></td>';
+		        								}
 
 		        								if (isset($_POST['Modif'.$n.''.$a])) {
 		        									echo 'Unicorn';
@@ -131,10 +136,42 @@
 	                if(isset($_POST['Ajouter']))
 	                {
 	                    $typeVehicule = selectTypeVehicule();
+	                    var_dump($typeVehicule);
 	                    AjoutVehicule($typeVehicule['0'], $_SESSION['ID_Client']);
 	                }
 	            ?>
 			</div>
+
+			<div id="Calendrier" class="center wow fadeInDown col-lg-12">
+				<h3>Vos rendez-vous</h3>
+
+				<div id="my-calendar" class="my-calendar">
+                    <!-- show date events with a modal window -->
+                    <script type="application/javascript">
+						$(document).ready(function () {
+
+						/*Hide if click outside */
+						    $('body').click(function(e){
+						      if(!$(e.target).closest('.zabuto_calendar *,.datepicker-wrap,span[class*="glyphicon-chevron"],.calendar-month-navigation').length){
+						        $('.zabuto_calendar').fadeIn('400');
+						      }
+						    })
+
+						/* Set the calendar */
+						    $("#my-calendar").zabuto_calendar({
+						        language: "fr",
+						        show_previous: true,
+						        show_next:12,
+
+						        ajax: {
+							        url: "show_data1.php",
+							        modal: true
+							    }
+						    })
+						});
+                    </script>
+                </div>
+            </div>
         </div><!--/.container-->
     </section><!--/#contact-page--> 
 
@@ -161,5 +198,6 @@
     <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
     <script src="/PPE1/js/jquery.isotope.min.js"></script>
     <script src="/PPE1/js/wow.min.js"></script>
+    <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
 </body>
 </html>

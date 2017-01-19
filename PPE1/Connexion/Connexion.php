@@ -75,7 +75,7 @@
                                 $_SESSION['tel_Client'] = $resultatID['tel_Client'];
                                 $_SESSION['etat_Client'] = $resultatID['etat_Client'];
 
-                                header('Location: ../Profil/Profil.php');
+                                header('Location: ../index.php');
                             }
                             else
                             {

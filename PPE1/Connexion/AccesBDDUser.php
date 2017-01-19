@@ -1,6 +1,29 @@
 <?php
 	include('../Modele/modele.class.php');
 
+	function dateFormatJJMMAAAA($date)
+	{
+	    list($year, $month, $day) = explode('-', $date);
+
+	    return "$day / $month / $year";
+	}
+
+	function dateFormatAAAAMMJJ($date)
+	{
+	    list($day, $month, $year) = explode('/', $date);
+
+	    return "$year-$month-$day";
+	}
+
+	function timeFormatNh($heure)
+	{
+		list($h, $min, $s) = explode(':', $heure);
+
+		return "$h";
+	}
+
+/* CONNEXION */
+
 	function Inscription()
 	{
 		$unModele = new Modele("localhost", "Garage", "root", "");
@@ -77,6 +100,8 @@
 		return $resultatID;
 	}
 
+/* CONNEXION AND PROFIL */
+
 	function selectMarque()
 	{
 		$unModele = new Modele("localhost", "Garage", "root", "");
@@ -112,7 +137,7 @@
 			"modele_Vehicule"=>$_POST['modele_Vehicule']
 			);
 
-			$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
+		$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
 
 		return $resultatTypeVehicule;
 	}
@@ -129,7 +154,7 @@
 			"mail_Client"=>$_POST['mail_Client']
 			);
 
-			$resultatIDClient = $unModele->selectWhere($champs, $tab);
+		$resultatIDClient = $unModele->selectWhere($champs, $tab);
 
 		return $resultatIDClient;
 	}
@@ -142,7 +167,11 @@
 
 		$tab = array(
 				"ID_TypeVehicule"=>$idtv,
-				"ID_Client"=>$idc
+				"ID_Client"=>$idc,
+				"immat_Vehicule"=>$_POST['immat_Vehicule'],
+				"dateachat_Vehicule"=>$_POST['dateachat_Vehicule'],
+				"km_Vehicule"=>$_POST['km_Vehicule'],
+				"couleur_Vehicule"=>$_POST['couleur_Vehicule']
 			);
 
 		$unModele->insert($tab);
@@ -168,7 +197,7 @@
 				"ID_Client"=>$idc
 			);
 
-			$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
+		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
 
 		return $resultatVehicule;
 	}
@@ -186,5 +215,60 @@
 		$resultat = $unModele->selectCount($tab);
 		
 		return $resultat;
+	}
+
+/* PROFIL */
+
+	function selectRDV()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("RDVClientVehicule");
+
+		$champs = array(
+				"ID_RDV",
+				"ID_Vehicule",
+				"marque_Vehicule",
+				"modele_Vehicule",
+				"immat_Vehicule",
+				"date_RDV",
+				"heure_RDV"
+			);
+ 
+		$tab = array(
+				"ID_Client"=>$_SESSION['ID_Client']
+			);
+
+		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
+
+		return $resultatVehicule;
+	}
+
+	function nbRDV()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("RDVClientVehicule");
+
+		$tab = array(
+				"ID_Client" => $_SESSION['ID_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+		
+		return $resultat;
+	}
+
+	function deleteVehicule()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Vehicules");
+
+		$tab = array(
+				"ID_Vehicule" => $_POST['ID_Vehicule']
+			);
+
+		$resultat = $unModele->delete($tab);
 	}
 ?>

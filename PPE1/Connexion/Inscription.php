@@ -13,8 +13,14 @@
 <?php include("../head.php"); ?>
 
 <body>
-    <?php include("../header.php"); ?>
-
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/PPE1/index.php"><img src="/PPE1/images/logo.png" alt="logo" width="35%" height="35%"></a>
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
+    
     <section id="feature" class="transparent-bg">
         <div class="container">
             <div class="center wow fadeInDown">      
@@ -195,25 +201,7 @@
                 </script>
             </div><!--/.row-->
         </div><!--/.container-->
-    </section><!--/#contact-page--> 
-
-    <footer id="footer" class="midnight-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; Speedy
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer><!--/#footer-->
+    </section><!--/#contact-page-->
 
     <script src="js/jquery.js"></script>
     <script src="/PPE1/js/bootstrap.min.js"></script>

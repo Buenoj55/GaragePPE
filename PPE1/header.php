@@ -49,8 +49,12 @@
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
                     <li><a href="/PPE1/index.php">Accueil</a></li>
-                    <li><a href="/PPE1/Reservation/Reservation.php">RDV</a></li>
-                    <li><a href="/PPE1/portfolio.html">Portfolio</a></li>
+                    <?php
+                        if(isset($_SESSION['ID_Client']))
+                        {
+                            echo '<li><a href="/PPE1/Reservation/Reservation.php">RDV</a></li>';
+                        }
+                    /*<li><a href="/PPE1/portfolio.html">Portfolio</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
@@ -60,7 +64,8 @@
                             <li><a href="/PPE1/shortcodes.html">Shortcodes</a></li>
                         </ul>
                     </li>
-                    <li><a href="/PPE1/blog.html">Blog</a></li> 
+                    <li><a href="/PPE1/blog.html">Blog</a></li>*/
+                    ?>
                     <li><a href="/PPE1/contact-us.html">Contact</a></li>
                     <li><a href="/PPE1/about-us.html">A propos</a></li>    
                 </ul>

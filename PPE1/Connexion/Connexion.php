@@ -79,7 +79,7 @@
                             }
                             else
                             {
-                                echo "Erreur sur l'identifiant ou le mot de passe";
+                                echo '<h2 class="col-lg-12"><span class="label label-danger">Erreur sur l\'identifiant ou le mot de passe</span></h2>';
                             }
                         }
                     }

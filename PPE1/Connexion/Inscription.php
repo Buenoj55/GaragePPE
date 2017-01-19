@@ -159,7 +159,7 @@
                             Inscription();
                             $typeVehicule = selectTypeVehicule();
                             $IDClient = selectIDClient();
-                            AjoutVehicule($typeVehicule['0'], $IDClient['0']);
+                            AjoutVehicule2($typeVehicule['0'], $IDClient['0']);
                         }
                     }
                 ?>

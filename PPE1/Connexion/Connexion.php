@@ -65,9 +65,6 @@
                                 session_start();
                                 $resultatID = selectInfo();
                                 $_SESSION['ID_Client'] = $resultatID['ID_Client'];
-                                $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
-                                $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
-                                $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
                                 $_SESSION['adr_Client'] = $resultatID['adr_Client'];
                                 $_SESSION['CP_Client'] = $resultatID['CP_Client'];
                                 $_SESSION['ville_Client'] = $resultatID['ville_Client'];

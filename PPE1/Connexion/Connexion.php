@@ -52,11 +52,11 @@
 
                         if (!isset($_POST['mail_Client'])) 
                         {
-                            echo "Entrer une adresse mail.";
+                            echo '<p><span class="label label-danger">Entrer une adresse mail.</span></p>';
                         }
                         else if(!isset($_POST['mdp_Client']))
                         {
-                            echo "Entrer un mot de passe";
+                            echo '<p><span class="label label-danger">Entrer un mot de passe</span></p>';
                         }
                         else
                         {

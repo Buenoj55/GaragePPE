@@ -53,6 +53,7 @@
                                             language: "fr",
                                             cell_border: false
                                         });
+                                        
                                     /* Get date and Hide*/
                                         $('.zabuto_calendar').delegate('.day','click',function(){
                                             var regExp = /\d*-\d+-\d+/;

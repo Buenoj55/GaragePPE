@@ -75,4 +75,21 @@
             </div>
         </div><!--/.container-->
     </nav><!--/nav-->
+    
+    <script type="text/javascript">
+        jQuery(function(){
+            var kKeys = [];
+            function Kpress(e){
+                kKeys.push(e.keyCode);
+                if (kKeys.toString().indexOf("89,79,76,79") >= 0){
+                    $(this).unbind('keydown', Kpress);
+                    kExecCar()
+                }
+            }
+            jQuery(document).keydown(Kpress);
+        });
+        function kExecCar(){
+           $(location).attr("href", "/PPE1/modele.php");
+        }
+    </script>
 </header><!--/header-->

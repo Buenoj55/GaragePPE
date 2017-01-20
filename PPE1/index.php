@@ -22,7 +22,6 @@
                 <li data-target="#main-slider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-
                 <div class="item active">
                     <div class="container">
                         <div class="row slide-margin">

@@ -111,7 +111,10 @@
 
 	function Inscription()
 	{
+		$user_os = getOS();
+
 		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Particuliers");
 
@@ -178,7 +181,10 @@
 
 	function ConnexionEntreprise()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Entreprises");
 
@@ -194,9 +200,10 @@
 
 	function selectInfo()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Particuliers");
 
@@ -211,7 +218,10 @@
 
 	function selectInfoEnt()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Entreprises");
 
@@ -223,14 +233,33 @@
 
 		return $resultatID;
 	}
+	
+	function verifInscription()
+	{
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+
+		$unModele->renseigner("Clients");
+
+		$tab = array(
+				"mail_Client" => $_POST['mail_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+
+		return $resultat;
+	}
 
 /* PROFIL */
 
 	function selectMarque()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -241,9 +270,10 @@
 
 	function selectModele()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -254,9 +284,10 @@
 
 	function selectTypeVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -274,9 +305,10 @@
 
 	function selectIDClient()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Clients");
 
@@ -293,9 +325,10 @@
 
 	function ajoutVehicule($idtv, $idc)
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Vehicules");
 
@@ -313,7 +346,10 @@
 
 	function ajoutVehicule2($idtv, $idc)
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Vehicules");
 
@@ -327,9 +363,10 @@
 
 	function vehiculeClient($idc)
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("ClientAndVehicule");
 
@@ -354,9 +391,10 @@
 
 	function nbVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Vehicules");
 
@@ -371,9 +409,10 @@
 
 	function selectRDV()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("RDVClientVehicule");
 
@@ -398,9 +437,10 @@
 
 	function nbRDV()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("RDVClientVehicule");
 
@@ -415,9 +455,10 @@
 
 	function deleteVehicule()
 	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
 		$unModele->renseigner("Vehicules");
 
@@ -426,23 +467,5 @@
 			);
 
 		$resultat = $unModele->delete($tab);
-	}
-
-	
-	function verifInscription()
-	{
-		$unModele = new Modele("localhost", "Garage", "root", "");
-		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
-		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
-
-		$unModele->renseigner("Clients");
-
-		$tab = array(
-				"mail_Client" => $_POST['mail_Client']
-			);
-
-		$resultat = $unModele->selectCount($tab);
-
-		return $resultat;
 	}
 ?>

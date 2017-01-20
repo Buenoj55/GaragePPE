@@ -13,7 +13,13 @@
 <?php include("../head.php"); ?>
 
 <body>
-    <?php include("../header.php"); ?>
+    <nav class="navbar navbar-inverse" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/PPE1/index.php"><img src="/PPE1/images/logo.png" alt="logo" width="35%" height="35%"></a>
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
 
     <section id="feature" class="transparent-bg">
         <div class="container">

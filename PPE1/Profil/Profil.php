@@ -4,13 +4,13 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Inscription</title>
+<title>Profil</title>
 <?php include("../head.php"); ?>
 
 <body>
@@ -19,7 +19,10 @@
     <section id="feature" class="transparent-bg">
         <div class="container">
             <div class="center wow fadeInDown">
-            	<h2> <?php echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier'] ; ?> </h2>
+            	<h2> <?php 
+            			if (isset($_SESSION['nom_Particulier'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier']; }
+            			else if (isset($_SESSION['nom_Entreprise'])) { echo $_SESSION['nom_Entreprise']; }
+            		?> </h2>
             </div>
 
             <div id="Vehicule" class="center wow fadeInDown col-lg-12">

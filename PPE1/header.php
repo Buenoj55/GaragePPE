@@ -7,8 +7,11 @@
                         if (isset($_SESSION['ID_Client']))
                         {                       
                             echo '<div class="top-number">
-                                    <h7>Bienvenue '.$_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier'].'</h7>
-                                    <a class="btn btn-primary btn-sm" class="navbar-form navbar-right inline-form" href="/PPE1/connexion/deconnexion.php" style="margin-top: 0.5%">Deconnexion</a>
+                                    <h7>Bienvenue ';
+                                    if(isset($_SESSION['nom_Particulier'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier']; }
+                                    else if(isset($_SESSION['nom_Entreprise'])) { echo $_SESSION['nom_Entreprise']; }
+                                echo ' </h7>';
+                                echo '<a class="btn btn-primary btn-sm" class="navbar-form navbar-right inline-form" href="/PPE1/connexion/deconnexion.php" style="margin-top: 0.5%">Deconnexion</a>
                                 </div>';
                             echo '<a href="/PPE1/Profil/Profil.php">Voir mon profil</a>';
                         }
@@ -52,7 +55,7 @@
                     <?php
                         if(isset($_SESSION['ID_Client']))
                         {
-                            echo '<li><a href="/PPE1/Reservation/Reservation.php">RDV</a></li>';
+                            echo '<li><a href="/PPE1/Reservation/Reservation.php">Prendre rendez-vous</a></li>';
                         }
                     /*<li><a href="/PPE1/portfolio.html">Portfolio</a></li>
                     <li class="dropdown">

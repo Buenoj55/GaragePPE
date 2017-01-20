@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +58,7 @@
                     <div id="Infos">
                         <div class="col-sm-5 col-sm-offset-1">
                             <div class="form-group">
-                                <label>Nom *</label>
+                                <label>Nom de l'entreprise *</label>
                                 <input type="text" name="nom_Entreprise" class="form-control" required="required">
                             </div>
                             <div class="form-group">

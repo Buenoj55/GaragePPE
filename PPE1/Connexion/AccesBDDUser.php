@@ -79,7 +79,23 @@
 		// Windows : $unModele = new Modele("localhost", "Garage", "root", "");
 		// Mac : $unModele = new Modele("localhost", "Garage", "root", "root");
 
-		$unModele->renseigner("Clients");
+		$unModele->renseigner("Particuliers");
+
+		$tab = array(
+				"mail_Client" => $_POST['mail_Client'],
+				"mdp_Client"=>$_POST['mdp_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+		
+		return $resultat;
+	}
+
+	function ConnexionEntreprise()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Entreprises");
 
 		$tab = array(
 				"mail_Client" => $_POST['mail_Client'],
@@ -99,7 +115,7 @@
 
 		$unModele->renseigner("Particuliers");
 
-		$champs = array("ID_Client", "nom_Particulier", "prenom_Particulier", "dateNaiss_Particulier", "adr_Client", "CP_Client", "ville_Client", "mail_Client", "tel_Client", "etat_Client");
+		$champs = array("ID_Client", "nom_Particulier", "prenom_Particulier", "civilite_Particulier", "dateNaiss_Particulier", "adr_Client", "CP_Client", "ville_Client", "mail_Client", "tel_Client", "etat_Client");
 
 		$tab = array("mail_Client"=>$_POST['mail_Client']);
 
@@ -108,7 +124,22 @@
 		return $resultatID;
 	}
 
-/* CONNEXION AND PROFIL */
+	function selectInfoEnt()
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Entreprises");
+
+		$champs = array("ID_Client", "nom_Entreprise", "numSIRET_Entreprise", "activite_Entreprise", "adr_Client", "CP_Client", "ville_Client", "mail_Client", "tel_Client", "etat_Client");
+
+		$tab = array("mail_Client"=>$_POST['mail_Client']);
+
+		$resultatID = $unModele->selectWhere($champs, $tab);
+
+		return $resultatID;
+	}
+
+/* PROFIL */
 
 	function selectMarque()
 	{
@@ -252,8 +283,6 @@
 		
 		return $resultat;
 	}
-
-/* PROFIL */
 
 	function selectRDV()
 	{

@@ -52,11 +52,11 @@
 
                         if (!isset($_POST['mail_Client'])) 
                         {
-                            echo "Entrer une adresse mail.";
+                            echo '<p><span class="label label-danger">Entrer une adresse mail.</span></p>';
                         }
                         else if(!isset($_POST['mdp_Client']))
                         {
-                            echo "Entrer un mot de passe";
+                            echo '<p><span class="label label-danger">Entrer un mot de passe</span></p>';
                         }
                         else
                         {
@@ -65,9 +65,6 @@
                                 session_start();
                                 $resultatID = selectInfo();
                                 $_SESSION['ID_Client'] = $resultatID['ID_Client'];
-                                $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
-                                $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
-                                $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
                                 $_SESSION['adr_Client'] = $resultatID['adr_Client'];
                                 $_SESSION['CP_Client'] = $resultatID['CP_Client'];
                                 $_SESSION['ville_Client'] = $resultatID['ville_Client'];
@@ -79,7 +76,7 @@
                             }
                             else
                             {
-                                echo "Erreur sur l'identifiant ou le mot de passe";
+                                echo '<h2 class="col-lg-12"><span class="label label-danger">Erreur sur l\'identifiant ou le mot de passe</span></h2>';
                             }
                         }
                     }

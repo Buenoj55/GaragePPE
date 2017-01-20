@@ -6,10 +6,10 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Inscription</title>
-<?php include("head.php"); ?>
+<?php include("/PPE1/head.php"); ?>
 
 <body>
-    <?php include("header.php"); ?>
+    <?php include("/PPE1/header.php"); ?>
 
     <section id="feature" class="transparent-bg">
         <div class="container">

@@ -45,9 +45,9 @@
 	        						{
 		        						for ($n = 0 ; $n < $nbVehicules['0'] ; $n++)
 		        						{
-		        							echo '<tr><td class="col-sm-2">'.$resultatVehicules[$n]['1'].'</td><td class="col-sm-2">'.$resultatVehicules[$n]['2'].'</td><td class="col-sm-2">'.$resultatVehicules[$n]['3'].'</td>';
+		        							echo '<tr><td class="col-sm-2">'.$resultatVehicules[$n]['1'].'</td><td class="col-sm-2">'.$resultatVehicules[$n]['2'].'</td>';
 
-		        							for ($a = 4 ; $a < 7 ; $a++)
+		        							for ($a = 3 ; $a < 7 ; $a++)
 		        							{ 
 		        								echo '<td class="col-sm-2">';
 		        								if (isset($resultatVehicules[$n][$a]))
@@ -144,6 +144,11 @@
 
 			<div id="Calendrier" class="center wow fadeInDown col-lg-12">
 				<h3>Vos rendez-vous</h3>
+
+				<?php
+					$nbRDV = nbRDV();
+					if($nbRDV['nb'] == 0) { echo '<h4 class="col-lg-12"><span class="label label-warning">Vous n\'avez pas de rendez-vous.</span></h4>'; }
+				?>
 
 				<div id="my-calendar" class="my-calendar">
                     <!-- show date events with a modal window -->

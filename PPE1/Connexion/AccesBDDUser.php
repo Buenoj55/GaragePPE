@@ -195,6 +195,20 @@
 		$unModele->insert($tab);
 	}
 
+	function ajoutVehicule2($idtv, $idc)
+	{
+		$unModele = new Modele("localhost", "Garage", "root", "");
+
+		$unModele->renseigner("Vehicules");
+
+		$tab = array(
+				"ID_TypeVehicule"=>$idtv,
+				"ID_Client"=>$idc
+			);
+
+		$unModele->insert($tab);
+	}
+
 	function vehiculeClient($idc)
 	{
 		$unModele = new Modele("localhost", "Garage", "root", "root");

@@ -125,7 +125,7 @@
                         {
                             $verif = verifInscription();
 
-                            if ($verif > 0)
+                            if ($verif['nb'] != 0)
                             {
                                 echo '<p><span class="label label-danger">Email déjà enregistré.</span></p>';
                             }

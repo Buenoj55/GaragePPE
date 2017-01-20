@@ -140,7 +140,7 @@
       $insert->execute($donnees);
     }
 
-    public function udate($tab, $where)
+    public function update($tab, $where)
     {
       $champs = array();
       $donnees = array();

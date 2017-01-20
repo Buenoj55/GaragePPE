@@ -117,7 +117,16 @@
                         }
                         else
                         {
-                            InscriptionEntreprise();
+                            $verif = verifInscription();
+
+                            if ($verif > 0)
+                            {
+                                echo '<p><span class="label label-danger">Email déjà enregistré.</span></p>';
+                            }
+                            else
+                            {
+                                InscriptionEntreprise();
+                            }
                         }
                     }
                 ?>

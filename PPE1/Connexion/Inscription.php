@@ -134,14 +134,11 @@
                             $verif = verifInscription();
                             if ($verif > 0)
                             {
-                                echo "Ce mail est déja utilisé, merci d'en renseigner un autre";
+                                echo '<p><span class="label label-danger">Email déjà enregistré.</span></p>';
                             }
                             else
                             {
-                            Inscription();
-                            $typeVehicule = selectTypeVehicule();
-                            $IDClient = selectIDClient();
-                            AjoutVehicule($typeVehicule['0'], $IDClient['0']);
+                                Inscription();
                             }
                         }
 

@@ -171,7 +171,7 @@
 
 		$tab = array(
 				"mail_Client" => $_POST['mail_Client'],
-				"mdp_Client"=>$_POST['mdp_Client']
+				"mdp_Client"=>sha1(sha1($_POST['mdp_Client']))
 			);
 
 		$resultat = $unModele->selectCount($tab);
@@ -190,7 +190,7 @@
 
 		$tab = array(
 				"mail_Client" => $_POST['mail_Client'],
-				"mdp_Client"=> sha1(sha1($_POST['mdp_Client'])),
+				"mdp_Client"=> sha1(sha1($_POST['mdp_Client']))
 			);
 
 		$resultat = $unModele->selectCount($tab);

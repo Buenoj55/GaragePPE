@@ -58,15 +58,6 @@
 		        									if($a == 5) { echo dateFormatJJMMAAAA($resultatVehicules[$n][$a]).'</td>'; }
 		        									else { echo $resultatVehicules[$n][$a].'</td>'; }
 		        								}
-		        								else
-		        								{
-		        									echo '<input class="col-sm-10" name="input'.$n.''.$a.'">';
-		        									echo '<a type="submit" name="Modif'.$n.''.$a.'" class="pull-right"><span class="glyphicon glyphicon-ok-sign"></span></a></td>';
-		        								}
-
-		        								if (isset($_POST['Modif'.$n.''.$a])) {
-		        									echo 'Unicorn';
-		        								}
 		        							}
 		        						}
 	        						}

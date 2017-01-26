@@ -62,6 +62,7 @@
 		        									if($a == 5) { echo dateFormatJJMMAAAA($resultatVehicules[$n][$a]).'</td>'; }
 		        									else { echo $resultatVehicules[$n][$a].'</td>'; }
 		        								}
+
 		        								else
 		        								{
 		        									echo '<input class="col-sm-10" name="input'.$n.''.$a.'">';
@@ -214,6 +215,7 @@
     <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
     <script src="/PPE1/js/jquery.isotope.min.js"></script>
     <script src="/PPE1/js/wow.min.js"></script>
+    <script src="/PPE1/js/main.js"></script>
     <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
 </body>
 </html>

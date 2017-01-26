@@ -677,7 +677,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; Speedy
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
@@ -695,7 +695,8 @@
     <script src="/PPE1/js/bootstrap.min.js"></script>
     <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
     <script src="/PPE1/js/jquery.isotope.min.js"></script>
-    <script src="/PPE1/js/main.js"></script>
     <script src="/PPE1/js/wow.min.js"></script>
+    <script src="/PPE1/js/main.js"></script>
+    <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
 </body>
 </html>

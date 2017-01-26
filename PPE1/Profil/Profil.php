@@ -206,6 +206,7 @@
     <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
     <script src="/PPE1/js/jquery.isotope.min.js"></script>
     <script src="/PPE1/js/wow.min.js"></script>
+    <script src="/PPE1/js/main.js"></script>
     <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
 </body>
 </html>

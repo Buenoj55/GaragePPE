@@ -16,7 +16,7 @@
 <body>
     <?php include("../header.php"); ?>
 
-    <section id="feature" class="transparent-bg">
+    <section>
         <div class="container">
             <div class="center wow fadeInDown">
                 <div class="col-lg-12">

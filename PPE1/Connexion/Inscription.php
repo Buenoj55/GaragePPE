@@ -177,5 +177,6 @@
     <script src="/PPE1/js/jquery.prettyPhoto.js"></script>
     <script src="/PPE1/js/jquery.isotope.min.js"></script>
     <script src="/PPE1/js/wow.min.js"></script>
+    <script src="/PPE1/js/main.js"></script>
 </body>
 </html>

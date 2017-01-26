@@ -73,6 +73,19 @@
 	            			</tbody>
 						</table>
 					</form>
+
+					<?php
+	        			$resultatVehicules = vehiculeClient($_SESSION['ID_Client']);
+						$nbVehicules = nbVehicule();
+
+						for ($n = 0 ; $n < $nbVehicules['0'] ; $n++)
+		        		{
+		        			if (isset($_POST['Supprimer'.$n]))
+		        			{
+		        				deleteVehicule($resultatVehicules[$n]['0']);
+		        			}
+		        		}
+					?>
             	</div>
             </div>
 
@@ -174,6 +187,19 @@
 						});
                     </script>
                 </div>
+
+                <?php
+	                $resultatrdv = selectRDV();
+				    $nbRDV = nbRDV();
+
+				    for ($n = 0; $n < $nbRDV['nb']; $n++)
+				    {
+				        if(isset($_POST['Supprimer'.$resultatrdv[$n]['0']]))
+				        {
+				            deleteRDV($resultatrdv[$n]['0']);
+				        }
+				    }
+			    ?>
             </div>
         </div><!--/.container-->
     </section><!--/#contact-page--> 

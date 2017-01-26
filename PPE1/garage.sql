@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS PARTICULIERS
  comment = "";
 
  INSERT INTO Particuliers (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT)
- VALUES ('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-Francois Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', '123456', '1');
+ VALUES ('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-Francois Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', sha1(sha1('123456')), '1');
 
 # -----------------------------------------------------------------------------
 #       TABLE : INTERVENTIONS

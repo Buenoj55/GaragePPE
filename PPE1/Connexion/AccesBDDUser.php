@@ -453,7 +453,7 @@
 		return $resultat;
 	}
 
-	function deleteVehicule()
+	function deleteVehicule($idv)
 	{
 		$user_os = getOS();
 
@@ -463,7 +463,23 @@
 		$unModele->renseigner("Vehicules");
 
 		$tab = array(
-				"ID_Vehicule" => $_POST['ID_Vehicule']
+				"ID_Vehicule" => $idv
+			);
+
+		$resultat = $unModele->delete($tab);
+	}
+
+	function deleteRDV($idrdv)
+	{
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+
+		$unModele->renseigner("RDV");
+
+		$tab = array(
+				"ID_RDV" => $idrdv
 			);
 
 		$resultat = $unModele->delete($tab);

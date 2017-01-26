@@ -32,14 +32,13 @@
             		<form class="contact-form" method="post">
 	            		<table class="table table-striped table-hover">
 	            			<thead>
-	            				
             					<th>Marque</th>
             					<th>Modèle</th>
             					<th>Immatriculation</th>
             					<th>Kilométrage</th>
             					<th>Date d'achat</th>
             					<th>Couleur</th>
-            					<th></th>
+            					<th>Supprimer</th>
 	            			</thead>
 	            			<tbody>
 	        					<?php
@@ -62,27 +61,14 @@
 		        									if($a == 5) { echo dateFormatJJMMAAAA($resultatVehicules[$n][$a]).'</td>'; }
 		        									else { echo $resultatVehicules[$n][$a].'</td>'; }
 		        								}
-
-		        								else
-		        								{
-		        									echo '<input class="col-sm-10" name="input'.$n.''.$a.'">';
-		        									echo '<a type="submit" name="Modif'.$n.''.$a.'" class="pull-right"><span class="glyphicon glyphicon-ok-sign"></span></a></td>';
-		        								}
-
-		        								if (isset($_POST['Modif'.$n.''.$a])) {
-		        									echo 'Unicorn';
-		        								}
-
 		        							}
-		        							echo '<td><button type="button" class="btn btn-danger">X</button></td>';
+		        							echo '<td><button type="submit" name="Supprimer'.$n.'" class="btn btn-danger">X</button></td>';
 		        						}
-
 	        						}
 	        						else
 	        						{
 	        							echo '<tr><td colspan="6">Vous n\'avez pas enregistré de véhicules.</td></tr>';
 	        						}
-
 	        					?>
 	            			</tbody>
 						</table>

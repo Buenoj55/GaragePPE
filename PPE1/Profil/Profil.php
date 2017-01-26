@@ -38,7 +38,7 @@
             					<th>Kilométrage</th>
             					<th>Date d'achat</th>
             					<th>Couleur</th>
-            					<th>Supprimer</th>
+            					<th></th>
 	            			</thead>
 	            			<tbody>
 	        					<?php
@@ -67,7 +67,7 @@
 	        						}
 	        						else
 	        						{
-	        							echo '<tr><td colspan="6">Vous n\'avez pas enregistré de véhicules.</td></tr>';
+	        							echo '<tr><td colspan="7">Vous n\'avez pas enregistré de véhicules.</td></tr>';
 	        						}
 	        					?>
 	            			</tbody>
@@ -147,7 +147,6 @@
 	                if(isset($_POST['Ajouter']))
 	                {
 	                    $typeVehicule = selectTypeVehicule();
-	                    var_dump($typeVehicule);
 	                    AjoutVehicule($typeVehicule['0'], $_SESSION['ID_Client']);
 	                }
 	            ?>

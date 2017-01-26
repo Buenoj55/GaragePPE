@@ -18,7 +18,7 @@
             'date' => $resultatrdv[$n]['5'],
             'badge' => true,
             'title' => dateFormatJJMMAAAA($resultatrdv[$n]['5']),
-            'body' => '<p class="lead">Réservation validée pour <strong>'.timeFormatNh($resultatrdv[$n]['6']).'h</strong></p>',
+            'body' => '<p class="lead">Réservation en attente de validation pour <strong>'.timeFormatNh($resultatrdv[$n]['6']).'h </strong></p>',
             'footer' => '<form method="post">
                             <button type="submit" name="Supprimer'.$resultatrdv[$n]['0'].'" class="btn btn-danger">Annuler rendez-vous</button>
                         </form>',

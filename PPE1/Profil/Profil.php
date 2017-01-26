@@ -32,12 +32,14 @@
             		<form class="contact-form" method="post">
 	            		<table class="table table-striped table-hover">
 	            			<thead>
+	            				
             					<th>Marque</th>
             					<th>Modèle</th>
             					<th>Immatriculation</th>
             					<th>Kilométrage</th>
             					<th>Date d'achat</th>
             					<th>Couleur</th>
+            					<th></th>
 	            			</thead>
 	            			<tbody>
 	        					<?php
@@ -48,7 +50,9 @@
 	        						{
 		        						for ($n = 0 ; $n < $nbVehicules['0'] ; $n++)
 		        						{
-		        							echo '<tr><td class="col-sm-2">'.$resultatVehicules[$n]['1'].'</td><td class="col-sm-2">'.$resultatVehicules[$n]['2'].'</td>';
+		        							echo '<tr>';
+		        										 
+		        							echo '<td class="col-sm-2">'.$resultatVehicules[$n]['1'].'</td><td class="col-sm-2">'.$resultatVehicules[$n]['2'].'</td>';
 
 		        							for ($a = 3 ; $a < 7 ; $a++)
 		        							{ 
@@ -67,13 +71,17 @@
 		        								if (isset($_POST['Modif'.$n.''.$a])) {
 		        									echo 'Unicorn';
 		        								}
+
 		        							}
+		        							echo '<td><button type="button" class="btn btn-danger">X</button></td>';
 		        						}
+
 	        						}
 	        						else
 	        						{
 	        							echo '<tr><td colspan="6">Vous n\'avez pas enregistré de véhicules.</td></tr>';
 	        						}
+
 	        					?>
 	            			</tbody>
 						</table>

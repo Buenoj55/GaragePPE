@@ -92,10 +92,11 @@
 			<div id="AjoutVehicule" class="center wow fadeInDown col-lg-12">
 			    <h3 class="lead">Ajouter un véhicule :</h3>
 
-	        	<form class="contact-form" method="post"	>
+	        	<form class="contact-form" method="post">
 	        		<div class="col-sm-2">
 			            <label>Marque *</label>                     
-			            <select name="marque_Vehicule" class="form-control">
+			            <select id="marque_Vehicule" name="marque_Vehicule" class="form-control" type="submit">
+			            	<option>-- Marques --</option>
 			                <?php
 			                    $resultatMarques = selectMarque();
 			                    foreach ($resultatMarques as $resultatMarque)
@@ -105,18 +106,30 @@
 			                ?>
 			            </select>
 			        </div>
-			        <div class="col-sm-2">                      
-			            <label>Modèle *</label>                     
-			            <select name="modele_Vehicule" class="form-control">
-			                <?php
+
+			        <div id="Modele" class="col-sm-2">                      
+						<label>Modèle *</label>                     
+						<select name="modele_Vehicule" class="form-control">
+							<option>-- Modèles --</option>
+							<?php
 			                    $resultatModeles = selectModele();
 			                    foreach ($resultatModeles as $resultatModele)
 			                    {
 			                        echo '<option value="'.$resultatModele['modele_Vehicule'].'">'.$resultatModele['modele_Vehicule'].'</option>';
-			                    }
-			                ?>
-			            </select>
-			        </div>
+		                    	}
+		                    ?>
+						</select>
+					</div>
+
+					<script>
+					    var list = document.getElementById('marque_Vehicule');
+
+					    list.addEventListener('change', function() {
+
+					        // On affiche le contenu de l'élément <option> ciblé par la propriété selectedIndex
+					        alert(list.options[list.selectedIndex].innerHTML);
+					    });
+					</script>
 
 			        <div class="col-sm-2 form-group">
 				        <label>Immatriculation</label>

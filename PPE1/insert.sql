@@ -1,4 +1,4 @@
-INSERT INTO PIECES VALUES ('Amortisseurs',69.9),
+INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE) VALUES ('Amortisseurs',69.9),
 			  ('Bloc optique',39.9),
 			  ('Batterie',59.9),
 			  ('Pot d\'echappement',89.9),
@@ -22,9 +22,10 @@ INSERT INTO OPERATIONS VALUES ('Vidange',prix,duree),
 			      (' ', , ),
 			      (' ', , );
 
-INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT) VALUES ('Homme', 'ADMIN', '', '0000-00-00','ADMIN', '75000', 'Paris', 'ADMIN@ADMIN', '00000000001', sha1(sha1('ADMIN')), '1'),
+INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT) VALUES ('Homme', 'ADMIN', '', '0001-01-01','ADMIN', '75000', 'Paris', 'ADMIN@ADMIN', '00000000001', sha1(sha1('ADMIN')), '1'),
 				('Femme', '1', 'User', '1996-11-02','21 Boulevard Francois Mitterand', '75000', 'Paris', 'user1@gmail.com', '0138435898', sha1(sha1('user1')), '1'),
-				('Homme', '2', 'User', '1987-12-13','38 Boulevard Haussmann', '75000', 'Paris', 'user2@gmail.com', '0181437898', sha1(sha1('user2')), '1');
+				('Homme', '2', 'User', '1987-12-13','38 Boulevard Haussmann', '75000', 'Paris', 'user2@gmail.com', '0181437898', sha1(sha1('user2')), '1'),
+				('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-François Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', sha1(sha1('123456')), '1');
 
 INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'),
 				 ('Audi','A2'),

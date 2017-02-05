@@ -16,8 +16,7 @@ CREATE TABLE IF NOT EXISTS 2_ROUES
    KM_VEHICULE INTEGER NULL  ,
    COULEUR_VEHICULE VARCHAR(32) NULL
    , PRIMARY KEY (ID_VEHICULE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : DEVISLIGNE
@@ -31,8 +30,7 @@ CREATE TABLE IF NOT EXISTS DEVISLIGNE
    DATE_DEVIS DATE NULL  ,
    URLPDF_DEVIS VARCHAR(32) NULL
    , PRIMARY KEY (NUM_DEVIS)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE DEVISLIGNE
@@ -55,8 +53,7 @@ CREATE TABLE IF NOT EXISTS RDV
    HEURE_RDV TIME NOT NULL  ,
    RAISON_RDV VARCHAR(32) NULL
    , PRIMARY KEY (ID_RDV)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE RDV
@@ -82,8 +79,7 @@ CREATE TABLE IF NOT EXISTS 4_ROUES
    KM_VEHICULE INTEGER NULL  ,
    COULEUR_VEHICULE VARCHAR(32) NULL
    , PRIMARY KEY (ID_VEHICULE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : PIECES
@@ -96,8 +92,7 @@ CREATE TABLE IF NOT EXISTS PIECES
    PRIX_PIECE DECIMAL(10,2) NULL  ,
    TAUXTVA_PIECE DECIMAL(10,2) NULL
    , PRIMARY KEY (ID_PIECE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : OPERATIONS
@@ -110,8 +105,7 @@ CREATE TABLE IF NOT EXISTS OPERATIONS
    PRIX_OPERATION DECIMAL(10,2) NULL  ,
    DUREEESTIME_OPERATION TIME NULL
    , PRIMARY KEY (ID_OPERATION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : PARTICULIERS
@@ -128,15 +122,11 @@ CREATE TABLE IF NOT EXISTS PARTICULIERS
    CP_CLIENT INTEGER NULL  ,
    VILLE_CLIENT VARCHAR(32) NULL  ,
    MAIL_CLIENT VARCHAR(32) NOT NULL  ,
-   TEL_CLIENT VARCHAR(10) NULL  ,
+   TEL_CLIENT VARCHAR(32) NULL  ,
    MDP_CLIENT VARCHAR(254) NOT NULL  ,
    ETAT_CLIENT BOOLEAN NULL
    , PRIMARY KEY (ID_CLIENT)
- )
- comment = "";
-
- INSERT INTO Particuliers (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT)
- VALUES ('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-Francois Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', sha1(sha1('123456')), '1');
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : INTERVENTIONS
@@ -150,8 +140,7 @@ CREATE TABLE IF NOT EXISTS INTERVENTIONS
    DATE_INTERVENTION DATE NULL  ,
    DUREE_INTERVENTION TIME NULL
    , PRIMARY KEY (NUM_INTERVENTION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE INTERVENTIONS
@@ -174,13 +163,7 @@ CREATE TABLE IF NOT EXISTS TYPEVEHICULES
    MARQUE_VEHICULE VARCHAR(32) NULL  ,
    MODELE_VEHICULE VARCHAR(32) NULL
    , PRIMARY KEY (ID_TYPEVEHICULE)
- )
- comment = "";
-
- INSERT INTO TYPEVEHICULES VALUES ('1', 'Audi', 'A4');
- INSERT INTO TYPEVEHICULES VALUES ('2', 'Audi', 'A3');
- INSERT INTO TYPEVEHICULES VALUES ('3', 'Audi', 'A2');
- INSERT INTO TYPEVEHICULES VALUES ('4', 'Audi', 'A1');
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : FACTURES
@@ -193,8 +176,7 @@ CREATE TABLE IF NOT EXISTS FACTURES
    MONTANT_FACTURE DECIMAL(10,2) NULL  ,
    URLPDF VARCHAR(32) NULL
    , PRIMARY KEY (ID_FACTURE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE FACTURES
@@ -218,8 +200,7 @@ CREATE TABLE IF NOT EXISTS VEHICULES
    KM_VEHICULE INTEGER NULL  ,
    COULEUR_VEHICULE VARCHAR(32) NULL
    , PRIMARY KEY (ID_VEHICULE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE VEHICULES
@@ -247,8 +228,7 @@ CREATE TABLE IF NOT EXISTS TECHNICIENS
    NBINTERVENTION_TECHNICIEN INTEGER NULL  ,
    DISPONIBILITE_TECHNICIEN BOOLEAN NULL
    , PRIMARY KEY (ID_TECHNICIEN)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : CLIENTS
@@ -261,15 +241,11 @@ CREATE TABLE IF NOT EXISTS CLIENTS
    CP_CLIENT INTEGER NULL  ,
    VILLE_CLIENT VARCHAR(32) NULL  ,
    MAIL_CLIENT VARCHAR(32) NOT NULL  ,
-   TEL_CLIENT VARCHAR(10) NULL  ,
+   TEL_CLIENT VARCHAR(32) NULL  ,
    MDP_CLIENT VARCHAR(254) NOT NULL  ,
    ETAT_CLIENT BOOLEAN NULL
    , PRIMARY KEY (ID_CLIENT)
- )
- comment = "";
-
- INSERT INTO Clients (ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT)
- VALUES ('2, rue Jean-Francois Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', '123456', '1');
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : ENTREPRISES
@@ -285,12 +261,11 @@ CREATE TABLE IF NOT EXISTS ENTREPRISES
    CP_CLIENT INTEGER NULL  ,
    VILLE_CLIENT VARCHAR(32) NULL  ,
    MAIL_CLIENT VARCHAR(32) NOT NULL  ,
-   TEL_CLIENT VARCHAR(10) NULL  ,
+   TEL_CLIENT VARCHAR(32) NULL  ,
    MDP_CLIENT VARCHAR(254) NOT NULL  ,
    ETAT_CLIENT BOOLEAN NULL
    , PRIMARY KEY (ID_CLIENT)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : DEPENDRE
@@ -301,8 +276,7 @@ CREATE TABLE IF NOT EXISTS DEPENDRE
    ID_TYPEVEHICULE INTEGER NOT NULL  ,
    ID_OPERATION INTEGER NOT NULL
    , PRIMARY KEY (ID_TYPEVEHICULE,ID_OPERATION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE DEPENDRE
@@ -324,8 +298,7 @@ CREATE TABLE IF NOT EXISTS NECESSITER
    ID_OPERATION INTEGER NOT NULL  ,
    NUM_INTERVENTION INTEGER NOT NULL
    , PRIMARY KEY (ID_OPERATION,NUM_INTERVENTION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE NECESSITER
@@ -347,8 +320,7 @@ CREATE TABLE IF NOT EXISTS CALCULER
    NUM_DEVIS INTEGER NOT NULL  ,
    ID_OPERATION INTEGER NOT NULL
    , PRIMARY KEY (NUM_DEVIS,ID_OPERATION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE CALCULER
@@ -371,8 +343,7 @@ CREATE TABLE IF NOT EXISTS COMPOSER
    ID_PIECE INTEGER NOT NULL  ,
    QUANTITE INTEGER NULL
    , PRIMARY KEY (ID_OPERATION,ID_PIECE)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE COMPOSER
@@ -396,8 +367,7 @@ CREATE TABLE IF NOT EXISTS PLANNING
    DATEHEUREDEBUT_AFFECTATION DATETIME NULL  ,
    DATEHEUREFIN_AFFECTATION DATETIME NULL
    , PRIMARY KEY (ID_TECHNICIEN,NUM_INTERVENTION)
- )
- comment = "";
+ )ENGINE=InnoDB, charSet="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE PLANNING

@@ -78,6 +78,7 @@
       $select = $this->pdo->prepare($requete);
       $select->execute($donnees);
       $unResultat = $select->fetchAll();
+
       return $unResultat;
     }
 

@@ -90,7 +90,7 @@
             </div>
 
 			<div id="AjoutVehicule" class="center wow fadeInDown col-lg-12">
-			    <h3 class="lead">Ajouter un véhicule :</h3>
+			    <h3 class="lead">Ajouter un véhicule</h3>
 
 	        	<form class="contact-form" method="post">
 	        		<div id="marque" class="col-sm-2">

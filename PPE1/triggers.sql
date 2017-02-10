@@ -104,3 +104,43 @@ CREATE TRIGGER deleteEntreprises
 		DELETE FROM CLIENTS WHERE ID_CLIENT = OLD.ID_CLIENT; 
 END // 
 DELIMITER ; 
+
+DROP TRIGGER IF EXISTS coeffVehicule; 
+DELIMITER // 
+CREATE TRIGGER coeffVehicule
+	BEFORE INSERT
+	ON TYPEVEHICULES
+	FOR EACH ROW 
+
+	BEGIN
+		IF new.marque_Vehicule = 'Audi' THEN 
+			SET new.COEFF_VEHICULE = 1.9;
+		ELSEIF new.marque_Vehicule = 'Dacia' THEN
+			SET new.COEFF_VEHICULE = 1.1;
+		ELSEIF new.marque_Vehicule = 'Ford' THEN
+			SET new.COEFF_VEHICULE = 1.7;
+		ELSEIF new.marque_Vehicule = 'Fiat' THEN
+			SET new.COEFF_VEHICULE = 1.3;
+		ELSEIF new.marque_Vehicule = 'Hyundai' THEN
+			SET new.COEFF_VEHICULE = 1.6;
+		ELSEIF new.marque_Vehicule = 'Kia' THEN
+			SET new.COEFF_VEHICULE = 1.4;
+		ELSEIF new.marque_Vehicule = 'Mercedes' THEN
+			SET new.COEFF_VEHICULE = 2.0;
+		ELSEIF new.marque_Vehicule = 'Nissan' THEN
+			SET new.COEFF_VEHICULE = 1.5;
+		ELSEIF new.marque_Vehicule = 'Opel' THEN
+			SET new.COEFF_VEHICULE = 1.2;
+		ELSEIF new.marque_Vehicule = 'Peugeot' THEN
+			SET new.COEFF_VEHICULE = 1.5;
+		ELSEIF new.marque_Vehicule = 'Renault' THEN
+			SET new.COEFF_VEHICULE = 1.0;
+		ELSEIF new.marque_Vehicule = 'Smart' THEN
+			SET new.COEFF_VEHICULE = 1.4;
+		ELSEIF new.marque_Vehicule = 'Toyota' THEN
+			SET new.COEFF_VEHICULE = 1.7;
+		ELSEIF new.marque_Vehicule = 'Volkswagen' THEN
+			SET new.COEFF_VEHICULE = 1.8;
+		END IF;
+	END // 
+DELIMITER ;

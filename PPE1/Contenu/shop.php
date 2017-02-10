@@ -45,7 +45,7 @@
                         {
                             echo '<div class="portfolio-item '.$resultatPiece[$n]['4'].' col-xs-12 col-sm-4 col-md-3">
                                     <div class="recent-work-wrap">
-                                        <img class="img-responsive" src="/PPE1/images/Shop/recent/'.$resultatPiece[$n]['0'].'.png" alt="" width="290" height="200">
+                                        <img class="img-responsive" src="/PPE1/images/Shop/recent/'.$resultatPiece[$n]['0'].'.png" alt="">
                                         <div class="overlay">
                                             <div class="recent-work-inner">
                                                 <h3><a href="#">'.$resultatPiece[$n]['1'].'</a></h3>

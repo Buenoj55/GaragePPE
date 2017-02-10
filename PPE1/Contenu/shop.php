@@ -43,13 +43,13 @@
                         $resultatPiece = selectPiece();
                         for ($n = 0; $n < $nbPiece['nb'] ; $n++)
                         {
-                            echo '<div class="portfolio-item '.$resultatPiece[$n]['4'].' col-xs-12 col-sm-4 col-md-3">
+                            echo '<div class="portfolio-item '.$resultatPiece[$n]['3'].' col-xs-12 col-sm-4 col-md-3">
                                     <div class="recent-work-wrap">
                                         <img class="img-responsive" src="/PPE1/images/Shop/recent/'.$resultatPiece[$n]['0'].'.png" alt="">
                                         <div class="overlay">
                                             <div class="recent-work-inner">
                                                 <h3><a href="#">'.$resultatPiece[$n]['1'].'</a></h3>
-                                                <h4>'.$resultatPiece[$n]['4'].'</h4>
+                                                <h4>'.$resultatPiece[$n]['3'].'</h4>
                                                 <p>'.$resultatPiece[$n]['2'].' €</p>
                                                 <a class="preview" href="/PPE1/images/Shop/full/'.$resultatPiece[$n]['0'].'.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                                             </div> 

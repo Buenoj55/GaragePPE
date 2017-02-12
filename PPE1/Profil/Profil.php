@@ -90,12 +90,13 @@
             </div>
 
 			<div id="AjoutVehicule" class="center wow fadeInDown col-lg-12">
-			    <h3 class="lead">Ajouter un véhicule :</h3>
+			    <h3 class="lead">Ajouter un véhicule</h3>
 
-	        	<form class="contact-form" method="post"	>
-	        		<div class="col-sm-2">
+	        	<form class="contact-form" method="post">
+	        		<div id="marque" class="col-sm-2">
 			            <label>Marque *</label>                     
-			            <select name="marque_Vehicule" class="form-control">
+			            <select id="marque_Vehicule" name="marque_Vehicule" class="form-control" onchange="request(this);">
+			            	<option>-- Marques --</option>
 			                <?php
 			                    $resultatMarques = selectMarque();
 			                    foreach ($resultatMarques as $resultatMarque)
@@ -104,19 +105,15 @@
 			                    }
 			                ?>
 			            </select>
-			        </div>
-			        <div class="col-sm-2">                      
-			            <label>Modèle *</label>                     
-			            <select name="modele_Vehicule" class="form-control">
-			                <?php
-			                    $resultatModeles = selectModele();
-			                    foreach ($resultatModeles as $resultatModele)
-			                    {
-			                        echo '<option value="'.$resultatModele['modele_Vehicule'].'">'.$resultatModele['modele_Vehicule'].'</option>';
-			                    }
-			                ?>
-			            </select>
-			        </div>
+						<span id="loader" style="display: none; position: absolute;"><img src="../images/loader.gif" alt="loading" /></span>
+					</div>
+
+					<div id="modele" class="col-sm-2">
+						<label>Modèle *</label>                     
+						<select name="modele_Vehicule" id="modele_Vehicule" class="form-control">
+							<option>-- Modèles --</option>
+						</select>
+					</div>
 
 			        <div class="col-sm-2 form-group">
 				        <label>Immatriculation</label>

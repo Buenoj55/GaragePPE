@@ -1,5 +1,5 @@
 <?php
-    include('../Connexion/AccesBDDUser.php');
+    include('AccesBDDShop.php');
     session_start();
 ?>
 
@@ -20,122 +20,45 @@
         <div class="container">
             <div class="center">
                <h2>Shop</h2>
-               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+               <p class="lead">Vous trouverez ici les différentes pièces dont nous disposons dans notre stock.</p>
             </div>
         
 
             <ul class="portfolio-filter text-center">
-                <li><a class="btn btn-default active" data-filter="*">All Works</a></li>
-                <li><a class="btn btn-default" data-filter=".bootstrap">Creative</a></li>
-                <li><a class="btn btn-default" data-filter=".html">Photography</a></li>
-                <li><a class="btn btn-default" data-filter=".wordpress">Web Development</a></li>
+                <li><a class="btn btn-default active" data-filter="*">Tout</a></li>
+                <?php
+                    $resultatCategorie = selectCategorie('categorie_Piece');
+
+                    foreach ($resultatCategorie as $resultatCat)
+                    {
+                        echo '<li><a class="btn btn-default" data-filter=".'.$resultatCat['0'].'">'.$resultatCat['0'].'</a></li>';
+                    }
+                ?>
             </ul><!--/#portfolio-filter-->
 
             <div class="row">
                 <div class="portfolio-items">
-                    <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item1.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item2.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item3.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a>Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>        
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item4.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>           
-                    </div><!--/.portfolio-item-->
-          
-                    <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item5.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>      
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item6.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>         
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item7.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img class="img-responsive" src="/PPE1/images/Shop/recent/item8.png" alt="">
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="/PPE1/images/Shop/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
+                    <?php
+                        $nbPiece = selectNbPiece();
+                        $resultatPiece = selectPiece();
+                        for ($n = 0; $n < $nbPiece['nb'] ; $n++)
+                        {
+                            echo '<div class="portfolio-item '.$resultatPiece[$n]['4'].' col-xs-12 col-sm-4 col-md-3">
+                                    <div class="recent-work-wrap">
+                                        <img class="img-responsive" src="/PPE1/images/Shop/recent/'.$resultatPiece[$n]['0'].'.png" alt="" width="290" height="200">
+                                        <div class="overlay">
+                                            <div class="recent-work-inner">
+                                                <h3><a href="#">'.$resultatPiece[$n]['1'].'</a></h3>
+                                                <h4>'.$resultatPiece[$n]['4'].'</h4>
+                                                <p>'.$resultatPiece[$n]['2'].' €</p>
+                                                <a class="preview" href="/PPE1/images/Shop/full/'.$resultatPiece[$n]['0'].'.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div><!--/.portfolio-item-->';
+                        }
+                        
+                    ?>
                 </div>
             </div>
         </div>

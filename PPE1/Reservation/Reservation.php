@@ -26,8 +26,8 @@
                         <div class="col-lg-8">
                             <legend>Sélectionner la date de réservation : </legend>
 
-                            <div class="datepicker-wrap">
-                                <input name="DateReservation" class="input-text full-width hasDatepicker" type="text">
+                            <div class="datepicker-wrap col-lg-6">
+                                <input name="DateReservation" class="input-text full-width hasDatepicker form-control" type="text">
                             </div>
 
                             <input type="hidden" name="DateReservation">

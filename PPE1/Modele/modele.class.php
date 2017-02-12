@@ -78,7 +78,22 @@
       $select = $this->pdo->prepare($requete);
       $select->execute($donnees);
       $unResultat = $select->fetchAll();
+
       return $unResultat;
+    }
+
+    public function selectCountOnly()
+    {
+      $clause = array();
+      $donnees = array();
+
+      $requete = "SELECT COUNT(*) as nb FROM ".$this->table.";";
+
+      $select = $this->pdo->prepare($requete);
+      $select->execute($donnees);
+      $unResultat2 = $select->fetch();
+
+      return $unResultat2;
     }
 
     public function selectCount($where)
@@ -107,9 +122,12 @@
       if($this->pdo != null)
       {
         $requete = "SELECT DISTINCT ".$column." FROM ".$this->table.";";
+
         $select = $this->pdo->prepare ($requete);
         $select->execute(); // execution de la requete
+
         $resultats = $select->fetchAll();
+
         return $resultats;
       }
       else

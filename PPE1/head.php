@@ -1,5 +1,5 @@
 <head>
-	<!-- core CSS -->
+    <!-- core CSS -->
     <link href="/PPE1/css/bootstrap.min.css" rel="stylesheet">
     <link href="/PPE1/css/font-awesome.min.css" rel="stylesheet">
     <link href="/PPE1/css/animate.min.css" rel="stylesheet">
@@ -15,11 +15,12 @@
     <script src="/PPE1/assets/js/jquery-3.1.0.min.js"></script>
     <script src="/PPE1/assets/js/jquery.js"></script>
 
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
     <script src="/PPE1/assets/js/bootstrap.js"></script>
 
     <script src="/PPE1/assets/js/zabuto_calendar.js"></script>
     <link rel="stylesheet" href="/PPE1/assets/css/zabuto_calendar.css">
 
     <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
+
+    <script type="text/javascript" src="oXHR.js"></script>
 </head><!--/head-->

@@ -268,7 +268,7 @@
 		return $resultatMarque;
 	}
 
-	function selectModele()
+	function selectModele($marque)
 	{
 		$user_os = getOS();
 
@@ -277,7 +277,31 @@
 
 		$unModele->renseigner("TypeVehicules");
 
-		$resultatModele = $unModele->selectDistinct("modele_Vehicule");
+		$champs = array("modele_Vehicule");
+ 
+		$tab = array( 
+			"marque_Vehicule"=>$marque
+			);
+
+		$resultatModele = $unModele->selectWhereAll($champs, $tab);
+
+		return $resultatModele;
+	}
+
+	function selectNbModele($marque)
+	{
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+
+		$unModele->renseigner("TypeVehicules");
+
+		$tab = array(
+				"marque_Vehicule" => $marque
+			);
+
+		$resultatModele = $unModele->selectCount($tab);
 
 		return $resultatModele;
 	}

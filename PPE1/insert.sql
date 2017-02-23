@@ -1,15 +1,16 @@
-INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE) VALUES ('Plaquettes de frein', 19.9, 'Freinage'),
-			  ('Disques de freinage', 89.9, 'Freinage'),
-			  ('Cylindres de freinage', 49.9 , 'Freinage'),
-			  ('Embrayage', 69.9, 'Embrayage'),
-			  ('Fourchette d\'embrayage', 19.9, 'Embrayage'),
-			  ('Filtre d\'habitacle', 14.9, 'Filtration'),	
-			  ('Filtre a huile', 6.9, 'Filtration'),
-			  ('Amortisseurs', 69.9, 'Suspension'),	
-			  ('Kit amortisseur', 19.9, 'Suspension'),
-			  ('Rotules', 39.9, 'Suspension'),
-			  ('Pot d\'echappement', 89.9, 'Echappement'),
-			  ('Lampes', 29.9, 'Eclairage');
+DELETE FROM PIECES;
+INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE,TAUXTVA_PIECE,CATEGORIE_PIECE) VALUES ('Plaquettes de frein', 19.9, 19.6,  'Freinage'),
+			  ('Disques de freinage', 89.9, 19.6,  'Freinage'),
+			  ('Cylindres de freinage', 49.9, 19.6, 'Freinage'),
+			  ('Embrayage', 69.9,19.6, 'Embrayage'),
+			  ('Fourchette d\'embrayage', 19.9,19.6, 'Embrayage'),
+			  ('Filtre d\'habitacle', 14.9,19.6, 'Filtration'),	
+			  ('Filtre a huile', 6.9,19.6, 'Filtration'),
+			  ('Amortisseurs', 69.9,19.6, 'Suspension'),	
+			  ('Kit amortisseur', 19.9,19.6, 'Suspension'),
+			  ('Rotules', 39.9,19.6, 'Suspension'),
+			  ('Pot d\'echappement', 89.9,19.6, 'Echappement'),
+			  ('Lampes', 29.9,19.6, 'Eclairage');
 
 
 #INSERT INTO OPERATIONS VALUES ('Vidange',prix,duree),
@@ -21,11 +22,13 @@ INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE) VALUES ('Plaquettes
 #			      (' ', , ),
 #			      (' ', , );
 
+DELETE FROM PARTICULIERS;
 INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, NOM_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, MAIL_CLIENT, TEL_CLIENT, MDP_CLIENT, ETAT_CLIENT) VALUES ('Homme', 'ADMIN', '', '0001-01-01','ADMIN', '75000', 'Paris', 'ADMIN@ADMIN', '00000000001', sha1(sha1('ADMIN')), '1'),
 				('Femme', '1', 'User', '1996-11-02','21 Boulevard Francois Mitterand', '75000', 'Paris', 'user1@gmail.com', '0138435898', sha1(sha1('user1')), '1'),
 				('Homme', '2', 'User', '1987-12-13','38 Boulevard Haussmann', '75000', 'Paris', 'user2@gmail.com', '0181437898', sha1(sha1('user2')), '1'),
 				('Homme', 'Mauer', 'Pierre', '1992-11-25', '2, rue Jean-François Gerbillon', '75006', 'Paris', 'mauerpierre@gmail.com', '0680631639', sha1(sha1('123456')), '1');
 
+DELETE FROM TYPEVEHICULES;
 INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'),
 				 ('Audi','A2'),
 				 ('Audi','A3'),

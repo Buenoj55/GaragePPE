@@ -46,7 +46,7 @@
     <nav class="navbar navbar-inverse" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/PPE1/index.php"><img src="/PPE1/images/logo.png" alt="logo" width="35%" height="35%"></a>
+                <a class="navbar-brand" href="/PPE1/index.php"><img src="/PPE1/images/imageSpeedy.png" alt="logo" width="35%" height="35%"></a>
             </div>
 			
             <div class="collapse navbar-collapse navbar-right">
@@ -70,7 +70,8 @@
                     </li>
                     <li><a href="/PPE1/blog.html">Blog</a></li> -->
                     <li><a href="/PPE1/Contenu/Shop.php">Pièces détachées</a></li> 
-                    <li><a href="/PPE1/Contenu/contact.php">Contact</a></li>   
+                    <li><a href="/PPE1/Contenu/contact.php">Contact</a></li>  
+                    <li><a href="/PPE1/Contenu/aPropos.php">A propos</a></li>
                 </ul>
             </div>
         </div><!--/.container-->

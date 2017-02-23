@@ -2533,6 +2533,12 @@ shortcodes page css
   margin-left: 15px;
 }
 
+.aPropos{
+  background-image: url("../images/backgroundSpeedy.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 700px;
+}
 
 
 

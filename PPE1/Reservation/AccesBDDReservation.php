@@ -157,7 +157,8 @@
 				"ID_Vehicule"=>$_POST['ID_Vehicule'],
 				"ID_Client"=>$_SESSION['ID_Client'],
 				"date_RDV"=>$_POST['date_RDV'],
-				"heure_RDV"=>$_POST['heure_RDV']
+				"heure_RDV"=>$_POST['heure_RDV'],
+				"raison_RDV"=>$_POST['raison_RDV']
 			);
 
 		$unModele->insert($tab);

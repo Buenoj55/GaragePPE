@@ -33,8 +33,7 @@
                     <li id="Entreprise"><a href="InscriptionEntreprise.php">Entreprise</a></li>
                 </ul>
             </div>
-            <div class="row contact-wrap wow fadeInDown"> 
-                <div class="status alert alert-success" style="display: none"></div>
+            <div class="row contact-wrap wow fadeInDown">
                 <form id="main-contact-form" class="contact-form" name="contact-form" method="post">
                     <div id="Mdp" class="center wow fadeInDown col-sm-12">
                         <h3 class="lead">Identifiant et Mot de passe :</h3>
@@ -65,8 +64,8 @@
                         <div class="col-sm-12 col-sm-offset-1">
                             <div class="form-group">
                                 <div class="col-sm-1 col-sm-offset-1"><label>Civilité *</label></div>
-                                <div class="col-sm-1"><input type="radio" name="civilite_Particulier" value="Homme">Homme</div>
-                                <div class="col-sm-1"><input type="radio" name="civilite_Particulier" value="Femme">Femme</div>
+                                <div class="col-sm-2"><input type="radio" name="civilite_Particulier" value="Homme"> Homme</div>
+                                <div class="col-sm-2"><input type="radio" name="civilite_Particulier" value="Femme"> Femme</div>
                             </div>
                         </div>
                         <div class="col-sm-5 col-sm-offset-1">
@@ -132,8 +131,6 @@
                         else 
                         {
                             $verif = verifInscription();
-
-                            var_dump($verif);
 
                             if ($verif['nb'] != 0)
                             {

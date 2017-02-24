@@ -8,8 +8,8 @@
                         {                       
                             echo '<div class="top-number">
                                     <h7>Bienvenue ';
-                                    if(isset($_SESSION['nom_Particulier'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier']; }
-                                    else if(isset($_SESSION['nom_Entreprise'])) { echo $_SESSION['nom_Entreprise']; }
+                                    if(isset($_SESSION['nom_Client'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Client']; }
+                                    else if(isset($_SESSION['nom_Client'])) { echo $_SESSION['nom_Client']; }
                                 echo ' </h7>';
                                 echo '<a class="btn btn-primary btn-sm" class="navbar-form navbar-right inline-form" href="/PPE1/connexion/deconnexion.php" style="margin-top: 0.5%">Deconnexion</a>
                                 </div>';

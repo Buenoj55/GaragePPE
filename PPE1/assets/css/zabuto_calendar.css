@@ -72,6 +72,7 @@ div.zabuto_calendar .table tr td div.day {
     margin: 0;
     padding-top: 7px;
     padding-bottom: 7px;
+    cursor: pointer;
 }
 
 /* actions and events */

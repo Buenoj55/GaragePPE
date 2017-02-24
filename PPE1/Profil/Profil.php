@@ -20,8 +20,8 @@
         <div class="container">
             <div class="center wow fadeInDown">
             	<h2> <?php 
-            			if (isset($_SESSION['nom_Particulier'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Particulier']; }
-            			else if (isset($_SESSION['nom_Entreprise'])) { echo $_SESSION['nom_Entreprise']; }
+            			if (isset($_SESSION['nom_Client'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Client']; }
+            			else if (isset($_SESSION['nom_Client'])) { echo $_SESSION['nom_Client']; }
             		?> </h2>
             </div>
 

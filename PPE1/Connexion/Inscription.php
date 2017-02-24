@@ -72,7 +72,7 @@
                         <div class="col-sm-5 col-sm-offset-1">
                             <div class="form-group">
                                 <label>Nom *</label>
-                                <input type="text" name="nom_Particulier" class="form-control" required="required">
+                                <input type="text" name="nom_Client" class="form-control" required="required">
                             </div>
                             <div class="form-group">
                                 <label>Prénom *</label>

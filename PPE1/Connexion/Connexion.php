@@ -69,13 +69,13 @@
                                 $resultatID = selectInfo();
 
                                 $_SESSION['ID_Client'] = $resultatID['ID_Client'];
+                                $_SESSION['nom_Client'] = $resultatID['nom_Client'];
+                                $_SESSION['mail_Client'] = $resultatID['mail_Client'];
                                 $_SESSION['adr_Client'] = $resultatID['adr_Client'];
                                 $_SESSION['CP_Client'] = $resultatID['CP_Client'];
                                 $_SESSION['ville_Client'] = $resultatID['ville_Client'];
-                                $_SESSION['mail_Client'] = $resultatID['mail_Client'];
                                 $_SESSION['tel_Client'] = $resultatID['tel_Client'];
                                 $_SESSION['etat_Client'] = $resultatID['etat_Client'];
-                                $_SESSION['nom_Particulier'] = $resultatID['nom_Particulier'];
                                 $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
                                 $_SESSION['civilite_Particulier'] = $resultatID['civilite_Particulier'];
                                 $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
@@ -89,13 +89,13 @@
                                 $resultatIDEnt = selectInfoEnt();
 
                                 $_SESSION['ID_Client'] = $resultatIDEnt['ID_Client'];
+                                $_SESSION['nom_Client'] = $resultatIDEnt['nom_Client'];
+                                $_SESSION['mail_Client'] = $resultatIDEnt['mail_Client'];
                                 $_SESSION['adr_Client'] = $resultatIDEnt['adr_Client'];
                                 $_SESSION['CP_Client'] = $resultatIDEnt['CP_Client'];
                                 $_SESSION['ville_Client'] = $resultatIDEnt['ville_Client'];
-                                $_SESSION['mail_Client'] = $resultatIDEnt['mail_Client'];
                                 $_SESSION['tel_Client'] = $resultatIDEnt['tel_Client'];
                                 $_SESSION['etat_Client'] = $resultatIDEnt['etat_Client'];
-                                $_SESSION['nom_Entreprise'] = $resultatIDEnt['nom_Entreprise'];
                                 $_SESSION['numSIRET_Entreprise'] = $resultatIDEnt['numSIRET_Entreprise'];
                                 $_SESSION['activite_Entreprise'] = $resultatIDEnt['activite_Entreprise'];
                             

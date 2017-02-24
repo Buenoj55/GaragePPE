@@ -83,6 +83,12 @@
 		        			if (isset($_POST['Supprimer'.$n]))
 		        			{
 		        				deleteVehicule($resultatVehicules[$n]['0']);
+
+		        				echo '<script language="Javascript">
+                                <!--
+                                document.location.replace("Profil.php");
+                                // -->
+                                </script>';
 		        			}
 		        		}
 					?>
@@ -145,6 +151,12 @@
 	                {
 	                    $typeVehicule = selectTypeVehicule();
 	                    AjoutVehicule($typeVehicule['0'], $_SESSION['ID_Client']);
+
+        				echo '<script language="Javascript">
+                        <!--
+                        document.location.replace("Profil.php");
+                        // -->
+                        </script>';
 	                }
 	            ?>
 			</div>

@@ -16,8 +16,8 @@ INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE, QUANTITE_PIECE) VAL
 INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PARTICULIER, NOM_CLIENT, MAIL_CLIENT, MDP_CLIENT, ADR_CLIENT, CP_CLIENT, VILLE_CLIENT, TEL_CLIENT, ETAT_CLIENT) VALUES
 				('Femme', 'User', '1996-11-02', 'Default', 'user1@gmail.com', sha1(sha1('user1')), '21 Boulevard Francois Mitterand', '75000', 'Paris', '0138435898', '1'),
 				('Homme', 'User', '1987-12-13', 'Default', 'user2@gmail.com', sha1(sha1('user2')), '38 Boulevard Haussmann', '75000', 'Paris', '0181437898', '1'),
-				('Homme', 'Pierre', '1992-11-25', 'Mauer', 'mauerpierre@gmail.com', sha1(sha1('123456')), '2, rue Jean-Francois Gerbillon', '75006', 'Paris', '0680631639', '1');
-				('Homme', 'Jerome', '1996-11-02', 'Bueno', 'jerome.bueno@hotmail.fr', sha1(sha1('jerome')), '19, avenue Paul Herbe', '95200', 'Sarcelles', '0101010101', '1');
+				('Homme', 'Pierre', '1992-11-25', 'Mauer', 'mauerpierre@gmail.com', sha1(sha1('123456')), '2, rue Jean-Francois Gerbillon', '75006', 'Paris', '0680631639', '1'),
+				('Homme', 'Jerome', '1996-11-02', 'Bueno', 'jerome.bueno@hotmail.fr', sha1(sha1('jerome')), '19, avenue Paul Herbe', '95200', 'Sarcelles', '0101010101', '1'),
 				('Homme', 'Lamine', '1995-05-14', 'Messaoudi', 'lamine_78@live.fr', sha1(sha1('azerty')), '7, allee des Yvelines', '78190', 'Trappes', '0101010101', '1');
 
 
@@ -34,7 +34,7 @@ INSERT INTO  OPERATIONS (LIBELLE_OPERATION, PRIX_OPERATION, DUREEESTIME_OPERATIO
 			 	('Remplacement de la courroie de distribution',60.0,'01:00:00'),
 			 	('Remplacement du pot d\'echappement',20.0,'00:30:00'),
 			 	('Montage de plaque d\'immatriculation',5.0,'00:15:00'),
-			 	('Remplacement de la boite de vitesse',300.0,'04:00:00'),
+			 	('Remplacement de la boite de vitesse',300.0,'04:00:00');
 
 
 INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'),

@@ -23,7 +23,7 @@
                     <form method="post">
                         <h2>Prendre rendez-vous</h2>
 
-                        <div class="col-lg-8">
+                        <div class="col-lg-6">
                             <legend>Sélectionner la date de réservation : </legend>
 
                             <div class="datepicker-wrap col-lg-6">
@@ -70,7 +70,7 @@
                         </div>
 
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <legend>Sélectionner un véhicule :</legend>
 
                             <?php
@@ -108,7 +108,7 @@
                                 echo '<input type="hidden" name="date_RDV" value="'.dateFormatAAAAMMJJ($_POST['DateReservation']).'">';
                                 echo '<input type="hidden" name="ID_Vehicule" value="'.$resultVehicule['0'].'">';
 
-                                echo '<div class="col-lg-4 date">';
+                                echo '<div class="col-lg-6 date">';
                                 echo '<h2>'.$_POST['DateReservation'].'</h2>';
                                 echo '<h3>'.$resultVehicule['1'].' '.$resultVehicule['2'].' - '.$resultVehicule['3'].'</h3>';
                                 echo '<legend>Sélectionner une horaire :</legend>';
@@ -147,6 +147,12 @@
                                 $resultVehicule2 = selectionVehicule($_POST['ID_Vehicule']);
 
                                 echo '<h2 class="col-lg-8"><span class="label label-success">Réservation validée en date du '.dateFormatJJMMAAAA($_POST['date_RDV']).' à '.timeFormatNh($_POST['heure_RDV']).'h pour la '.$resultVehicule2['1'].' '.$resultVehicule2['2'].' - '.$resultVehicule2['3'].'</span></h3>';
+
+                                echo '<script language="Javascript">
+                                <!--
+                                document.location.replace("../Profil/Profil.php");
+                                // -->
+                                </script>';
                             }
                         ?>
                     </form>

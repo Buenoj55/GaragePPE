@@ -77,7 +77,7 @@
 		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
 		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
-		$unModele->renseigner("ClientAndVehicule");
+		$unModele->renseigner("v_ClientAndVehicule");
 
 		$champs = array(
 				"ID_Vehicule",
@@ -123,7 +123,7 @@
 		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
 		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
-		$unModele->renseigner("ClientAndVehicule");
+		$unModele->renseigner("v_ClientAndVehicule");
 
 		$champs = array(
 				"ID_Vehicule",
@@ -171,7 +171,7 @@
 		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
 		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
-		$unModele->renseigner("RDVClientVehicule");
+		$unModele->renseigner("v_RDVClientVehicule");
 
 		$champs = array(
 				"ID_RDV",
@@ -199,7 +199,7 @@
 		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
 		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
 
-		$unModele->renseigner("RDVClientVehicule");
+		$unModele->renseigner("v_RDVClientVehicule");
 
 		$tab = array(
 				"date_RDV"=>dateFormatAAAAMMJJ($_POST['DateReservation'])

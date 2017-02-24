@@ -1,4 +1,5 @@
-INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE, QUANTITE_PIECE) VALUES ('Plaquettes de frein', 19.9, 'Freinage', 50),
+INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE, QUANTITE_PIECE) VALUES 
+			  ('Plaquettes de frein', 19.9, 'Freinage', 50),
 			  ('Disques de freinage', 89.9, 'Freinage', 50),
 			  ('Cylindres de freinage', 49.9 , 'Freinage', 50),
 			  ('Embrayage', 69.9, 'Embrayage', 50),
@@ -16,6 +17,23 @@ INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PA
 				('Femme', 'User', '1996-11-02', 'Default', 'user1@gmail.com', sha1(sha1('user1')), '21 Boulevard Francois Mitterand', '75000', 'Paris', '0138435898', '1'),
 				('Homme', 'User', '1987-12-13', 'Default', 'user2@gmail.com', sha1(sha1('user2')), '38 Boulevard Haussmann', '75000', 'Paris', '0181437898', '1'),
 				('Homme', 'Pierre', '1992-11-25', 'Mauer', 'mauerpierre@gmail.com', sha1(sha1('123456')), '2, rue Jean-Francois Gerbillon', '75006', 'Paris', '0680631639', '1');
+
+
+INSERT INTO  OPERATIONS (LIBELLE_OPERATION, PRIX_OPERATION, DUREEESTIME_OPERATION) VALUES
+			 	('Vidange',70.0,'01:00:00'),
+			 	('Controle technique',85.0,'00:20:00'),
+			 	('Peinture exterieure',250.0,'06:00:00'),
+			 	('Pose d\'un pneu',10.0,'00:15:00'),
+			 	('Pose des disques et des plaquettes de frein',140.0,'03:00:00'),
+			 	('Entretien climatisation',50.0,'01:00:00'),
+			 	('Changement de batterie',30.0,'00:30:00'),
+			 	('Rénovation des phares avant',60.0,'01:00:00'),
+			 	('Rénovation des phares arrière',60.0,'01:00:00'),
+			 	('Remplacement de la courroie de distribution',60.0,'01:00:00'),
+			 	('Remplacement du pot d\'echappement',20.0,'00:30:00'),
+			 	('Montage de plaque d\'immatriculation',5.0,'00:15:00'),
+			 	('Remplacement de la boite de vitesse',300.0,'04:00:00'),
+
 
 INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'),
 				 ('Audi','A2'),

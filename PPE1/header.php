@@ -1,4 +1,5 @@
 <header>
+<meta charset="utf-8">
     <div class="top-bar">
         <div class="container">
             <div class="row">

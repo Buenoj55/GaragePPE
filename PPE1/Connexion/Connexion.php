@@ -1,12 +1,17 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Connexion</title>
-<?php include("../head.php"); ?>
+<?php
+include("../head.php"); 
+?>
 
 <body>
     <nav class="navbar navbar-inverse" role="banner">
@@ -64,7 +69,7 @@
                         {
                             if ($resultat['nb'] == 1)
                             {
-                                session_start();
+                                
 
                                 $resultatID = selectInfo();
 
@@ -79,12 +84,17 @@
                                 $_SESSION['prenom_Particulier'] = $resultatID['prenom_Particulier'];
                                 $_SESSION['civilite_Particulier'] = $resultatID['civilite_Particulier'];
                                 $_SESSION['dateNaiss_Particulier'] = $resultatID['dateNaiss_Particulier'];
-                            
-                                header('Location: ../index.php');
+                                
+                                echo '<script language="Javascript">
+                                <!--
+                                document.location.replace("../index.php");
+                                // -->
+                                </script>';
+
+
                             }
                             else if($resultatEnt['nb'] == 1)
                             {
-                                session_start();
                                 
                                 $resultatIDEnt = selectInfoEnt();
 
@@ -98,9 +108,14 @@
                                 $_SESSION['etat_Client'] = $resultatIDEnt['etat_Client'];
                                 $_SESSION['numSIRET_Entreprise'] = $resultatIDEnt['numSIRET_Entreprise'];
                                 $_SESSION['activite_Entreprise'] = $resultatIDEnt['activite_Entreprise'];
-                            
-                                header('Location: ../index.php');
+
+                                echo '<script language="Javascript">
+                                <!--
+                                document.location.replace("../index.php");
+                                // -->
+                                </script>';
                             }
+                            
                             else
                             {
                                 echo '<h2 class="col-lg-12"><span class="label label-danger">Erreur sur l\'identifiant ou le mot de passe</span></h2>';

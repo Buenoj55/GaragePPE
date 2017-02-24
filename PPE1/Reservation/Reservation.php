@@ -88,7 +88,8 @@
 
                                     echo '</select>';
                                 }
-                                else { echo '<h3>Vous n\'avez pas enregistré de véhicule.'; }
+                                else { echo '<h3>Vous n\'avez pas enregistré de véhicule.</h3>
+                                                <h4><span class="label label-warning">Veuillez en enresgistrer sur votre profil <a href="../Profil/Profil.php">ici</a></span></h4>'; }
                             ?>
 
                             <button type="submit" class="btn btn-primary btn-lg" value="SelectionDate" name="SelectionDate">Vérifier les disponibilités</button>
@@ -107,7 +108,7 @@
                                 echo '<input type="hidden" name="date_RDV" value="'.dateFormatAAAAMMJJ($_POST['DateReservation']).'">';
                                 echo '<input type="hidden" name="ID_Vehicule" value="'.$resultVehicule['0'].'">';
 
-                                echo '<div class="col-lg-4" style="margin-top: 6%;">';
+                                echo '<div class="col-lg-4 date">';
                                 echo '<h2>'.$_POST['DateReservation'].'</h2>';
                                 echo '<h3>'.$resultVehicule['1'].' '.$resultVehicule['2'].' - '.$resultVehicule['3'].'</h3>';
                                 echo '<legend>Sélectionner une horaire :</legend>';
@@ -131,6 +132,10 @@
                                 }
 
                                 echo '</select>';
+
+                                echo '<legend class="date">Ajouter un commentaire :</legend>';
+                                echo '<textarea class="form-control col-lg-4" rows="4" name="raison_RDV" placeholder="Ajouter un commentaire si necessaire"></textarea>';
+
                                 echo '<button type="submit" class="btn btn-primary btn-lg" value="ValiderDate" name="ValiderDate">Valider la Réservation</button>';
                                 echo '</div>';
                             }

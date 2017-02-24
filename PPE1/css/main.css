@@ -2533,6 +2533,10 @@ shortcodes page css
   margin-left: 15px;
 }
 
+.date {
+  margin-top: 6%;
+}
+
 .aPropos{
   background-image: url("../images/backgroundSpeedy.png");
   background-repeat: no-repeat;

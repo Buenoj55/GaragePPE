@@ -32,7 +32,7 @@ function request(oSelect) {
         }
     };
     
-    xhr.open("POST", "XMLHttpRequest_getListData.php", true);
+    xhr.open("POST", "/PPE1/Profil/XMLHttpRequest_getListData.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("marque_Vehicule=" + value);
 }

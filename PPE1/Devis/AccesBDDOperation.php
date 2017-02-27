@@ -49,9 +49,6 @@
 
 	}
 
-
-	$user_os        =   getOS();
-
 	function connexionBDD()
 	{
 		$user_os = getOS();
@@ -60,146 +57,57 @@
 		else { return $unModele = new Modele("localhost", "Garage", "root", "root"); }
 	}
 
-	function dateFormatJJMMAAAA($date)
+	function selectCoeffVehicule($marque, $modele)
 	{
-	    list($year, $month, $day) = explode('-', $date);
+		$unModele = connexionBDD();
 
-	    return "$day / $month / $year";
+		$unModele->renseigner("TypeVehicules");
+
+		$champs = array("coeff_Vehicule");
+ 
+		$tab = array(
+			"marque_Vehicule"=>$marque, 
+			"modele_Vehicule"=>$modele
+			);
+
+		$resultatCoeff = $unModele->selectWhere($champs, $tab);
+
+		return $resultatCoeff;
 	}
 
-	function dateFormatAAAAMMJJ($date)
+	function selectPrixOperation()
 	{
-	    list($day, $month, $year) = explode('/', $date);
+		$unModele = connexionBDD();
 
-	    return "$year-$month-$day";
+		$unModele->renseigner("Operations");
+
+		$champs = array("prix_Operation");
+ 
+		$tab = array(
+			"libelle_Operation"=>$_POST['libelle_Operation']
+			);
+
+		$resultatPrixOp = $unModele->selectWhere($champs, $tab);
+
+		return $resultatPrixOp;
 	}
 
-	function timeFormatNh($heure)
-	{
-		list($h, $min, $s) = explode(':', $heure);
-
-		return "$h";
-	}
-
-	function vehiculeClient($idc)
+	function selectTypeVehicule()
 	{
 		$unModele = connexionBDD();
 
 		$unModele->renseigner("v_ClientAndVehicule");
 
-		$champs = array(
-				"ID_Vehicule",
-				"marque_Vehicule",
-				"modele_Vehicule",
-				"immat_Vehicule",
-				"km_Vehicule",
-				"dateachat_Vehicule",
-				"couleur_Vehicule"
-			);
+		$champs = array("marque_Vehicule",
+						"modele_Vehicule",
+						"immat_Vehicule");
  
 		$tab = array(
-				"ID_Client"=>$idc
+			"ID_Vehicule"=>$_POST['ID_Vehicule']
 			);
 
-		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
+		$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
 
-		return $resultatVehicule;
-	}
-
-	function nbVehicule()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("Vehicules");
-
-		$tab = array(
-				"ID_Client" => $_SESSION['ID_Client']
-			);
-
-		$resultat = $unModele->selectCount($tab);
-		
-		return $resultat;
-	}
-
-	function selectionVehicule($idv)
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("v_ClientAndVehicule");
-
-		$champs = array(
-				"ID_Vehicule",
-				"marque_Vehicule",
-				"modele_Vehicule",
-				"immat_Vehicule",
-				"km_Vehicule",
-				"dateachat_Vehicule",
-				"couleur_Vehicule"
-			);
- 
-		$tab = array(
-				"ID_Vehicule"=>$idv
-			);
-
-		$resultatVehicule = $unModele->selectWhere($champs, $tab);
-
-		return $resultatVehicule;
-	}
-
-	function ValiderReservation()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("RDV");
-
-		$tab = array(
-				"ID_Vehicule"=>$_POST['ID_Vehicule'],
-				"ID_Client"=>$_SESSION['ID_Client'],
-				"date_RDV"=>$_POST['date_RDV'],
-				"heure_RDV"=>$_POST['heure_RDV'],
-				"raison_RDV"=>$_POST['raison_RDV']
-			);
-
-		$unModele->insert($tab);
-	}
-
-	function selectRDVDate()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("v_RDVClientVehicule");
-
-		$champs = array(
-				"ID_RDV",
-				"ID_Vehicule",
-				"marque_Vehicule",
-				"modele_Vehicule",
-				"immat_Vehicule",
-				"date_RDV",
-				"heure_RDV"
-			);
- 
-		$tab = array(
-				"date_RDV"=>dateFormatAAAAMMJJ($_POST['DateReservation'])
-			);
-
-		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
-
-		return $resultatVehicule;
-	}
-
-	function nbRDVDate()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("v_RDVClientVehicule");
-
-		$tab = array(
-				"date_RDV"=>dateFormatAAAAMMJJ($_POST['DateReservation'])
-			);
-
-		$resultat = $unModele->selectCount($tab);
-		
-		return $resultat;
+		return $resultatTypeVehicule;
 	}
 ?>

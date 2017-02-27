@@ -389,7 +389,7 @@ input.search-form:hover {
   background: #c52d2f;
   color: #fff;
   border-radius: 4px;
-  margin-top: 25px;
+  margin-top: 45px;
   display: inline-block;
 }
 
@@ -2533,7 +2533,9 @@ shortcodes page css
   margin-left: 15px;
 }
 
-.date {
+/* MyCSS */
+
+.margin-top {
   margin-top: 6%;
 }
 
@@ -2543,7 +2545,13 @@ shortcodes page css
   background-position: top center;
 }
 
+#loader{
+  display: none;
+  position: absolute;
+}
 
-
+#Devis h1 {
+  color: #333;
+}
 
 

@@ -5,11 +5,11 @@ INSERT INTO PIECES (TYPE_PIECE, PRIX_PIECE, CATEGORIE_PIECE, QUANTITE_PIECE) VAL
 			  ('Embrayage', 69.9, 'Embrayage', 50),
 			  ('Fourchette d\'embrayage', 19.9, 'Embrayage', 50),
 			  ('Filtre d\'habitacle', 14.9, 'Filtration', 50),
-			  ('Filtre a huile', 6.9, 'Filtration', 50),
+			  ('Filtre à huile', 6.9, 'Filtration', 50),
 			  ('Amortisseurs', 69.9, 'Suspension', 50),
 			  ('Kit amortisseur', 19.9, 'Suspension', 50),
 			  ('Rotules', 39.9, 'Suspension', 50),
-			  ('Pot d\'echappement', 89.9, 'Echappement', 50),
+			  ('Pot d\'échappement', 89.9, 'Echappement', 50),
 			  ('Lampes', 29.9, 'Eclairage', 50);
 
 
@@ -32,7 +32,7 @@ INSERT INTO  OPERATIONS (LIBELLE_OPERATION, PRIX_OPERATION, DUREEESTIME_OPERATIO
 			 	('Rénovation des phares avant',60.0,'01:00:00'),
 			 	('Rénovation des phares arrière',60.0,'01:00:00'),
 			 	('Remplacement de la courroie de distribution',60.0,'01:00:00'),
-			 	('Remplacement du pot d\'echappement',20.0,'00:30:00'),
+			 	('Remplacement du pot d\'échappement',20.0,'00:30:00'),
 			 	('Montage de plaque d\'immatriculation',5.0,'00:15:00'),
 			 	('Remplacement de la boite de vitesse',300.0,'04:00:00');
 

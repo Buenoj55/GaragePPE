@@ -21,7 +21,7 @@
             <div class="center wow fadeInDown">
                 <div class="col-lg-12">
                     <form method="post">
-                        <h2>Prendre rendez-vous</h2>
+                        <h2 class="animation animated-item-1">Prendre rendez-vous</h2>
 
                         <div class="col-lg-6">
                             <legend>Sélectionner la date de réservation : </legend>
@@ -108,7 +108,7 @@
                                 echo '<input type="hidden" name="date_RDV" value="'.dateFormatAAAAMMJJ($_POST['DateReservation']).'">';
                                 echo '<input type="hidden" name="ID_Vehicule" value="'.$resultVehicule['0'].'">';
 
-                                echo '<div class="col-lg-6 date">';
+                                echo '<div class="col-lg-6 margin-top">';
                                 echo '<h2>'.$_POST['DateReservation'].'</h2>';
                                 echo '<h3>'.$resultVehicule['1'].' '.$resultVehicule['2'].' - '.$resultVehicule['3'].'</h3>';
                                 echo '<legend>Sélectionner une horaire :</legend>';
@@ -133,7 +133,7 @@
 
                                 echo '</select>';
 
-                                echo '<legend class="date">Ajouter un commentaire :</legend>';
+                                echo '<legend class="margin-top">Ajouter un commentaire :</legend>';
                                 echo '<textarea class="form-control col-lg-4" rows="4" name="raison_RDV" placeholder="Ajouter un commentaire si necessaire"></textarea>';
 
                                 echo '<button type="submit" class="btn btn-primary btn-lg" value="ValiderDate" name="ValiderDate">Valider la Réservation</button>';
@@ -161,22 +161,6 @@
         </div><!--/.container-->
     </section><!--/#feature-->
 
-    <footer id="footer" class="midnight-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
-                </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer><!--/#footer-->
+    <?php include('../footer.php'); ?>
 </body>
 </html>

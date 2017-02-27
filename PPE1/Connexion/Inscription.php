@@ -38,20 +38,20 @@
                     <div id="Mdp" class="center wow fadeInDown col-sm-12">
                         <h3 class="lead">Identifiant et Mot de passe :</h3>
 
-                        <div class="col-sm-offset-1">
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label>Email *</label>
                                 <input type="email" name="mail_Client" class="form-control" required="required">
                             </div> 
                         </div>
                         <div class="col-sm-12">
-                            <div class="col-sm-5 col-sm-offset-1">                      
+                            <div class="col-sm-5">                      
                                 <div class="form-group">
                                     <label>Mot de passe *</label>
                                     <input type="password" name="mdp_Client" class="form-control" required="required">
                                 </div>
                             </div>
-                            <div class="col-sm-5 col-sm-offset-1">                      
+                            <div class="col-sm-5 col-sm-offset-2">                      
                                 <div class="form-group">
                                     <label>Confirmer mot de passe *</label>
                                     <input type="password" name="confMdp_Client" class="form-control" required="required">
@@ -104,8 +104,8 @@
 
                     <input type="hidden" name="etat_Client" value="1">
 
-                    <div class="col-lg-12">
-                        <button type="submit" name="Valider" id="Valider" class="btn btn-primary btn-lg">Valider le formulaire</button>
+                    <div class="col-lg-7">
+                        <button type="submit" name="Valider" id="Valider" class="btn btn-primary btn-lg pull-right">Valider le formulaire</button>
                     </div>
                 </form>
 
@@ -141,7 +141,6 @@
                                 Inscription();
                             }
                         }
-
                     }
                 ?>
 

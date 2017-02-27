@@ -33,8 +33,7 @@
                     <li id="Entreprise" class="active"><a href="InscriptionEntreprise.php">Entreprise</a></li>
                 </ul>
             </div>
-            <div class="row contact-wrap wow fadeInDown"> 
-                <div class="status alert alert-success" style="display: none"></div>
+            <div class="row contact-wrap wow fadeInDown">
                 <form id="main-contact-form" class="contact-form" name="contact-form" method="post">
                     <div id="Mdp" class="center wow fadeInDown col-sm-12">
                         <h3 class="lead">Identifiant et Mot de passe :</h3>

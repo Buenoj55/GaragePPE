@@ -22,5 +22,5 @@
 
     <script src="/PPE1/assets/js/zabuto_calendar.jquery.json"></script>
 
-    <script type="text/javascript" src="oXHR.js"></script>
+    <script type="text/javascript" src="/PPE1/Profil/oXHR.js"></script>
 </head><!--/head-->

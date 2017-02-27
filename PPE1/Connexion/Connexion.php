@@ -42,10 +42,13 @@ include("../head.php");
                             <input type="password" name="mdp_Client" class="form-control" required="required">
                         </div>
                     </div>
-                    <div class="col-sm-5">                       
+                    <div class="col-sm-6">                       
                         <div class="form-group">
                             <button type="submit" name="Connexion" class="btn btn-primary btn-lg pull-right" required="required">Connexion</button>
                         </div>
+                    </div>
+                    <div class="col-sm-7"> 
+                        <a class="pull-right margin-top" href="Inscription.php">Vous n'êtes pas encore inscrits ? Cliquez ici.</a>
                     </div>
                 </form> 
 

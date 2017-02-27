@@ -84,14 +84,19 @@
 	$user_os        =   getOS();
 	$user_browser   =   getBrowser();
 
+	function connexionBDD()
+	{
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { return $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { return $unModele = new Modele("localhost", "Garage", "root", "root"); }
+	}
+
 /* Shop */
 
 	function selectPiece()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Pieces");
 
@@ -102,10 +107,7 @@
 
 	function selectNbPiece()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Pieces");
 
@@ -116,10 +118,7 @@
 
 	function selectCategorie()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Pieces");
 

@@ -1,5 +1,5 @@
 <?php
-	include('../Modele/modele.class.php');
+	include('Modele/modele.class.php');
 
 	/* GetOS */
 
@@ -49,9 +49,6 @@
 
 	}
 
-
-	$user_os        =   getOS();
-
 	function connexionBDD()
 	{
 		$user_os = getOS();
@@ -60,25 +57,54 @@
 		else { return $unModele = new Modele("localhost", "Garage", "root", "root"); }
 	}
 
-	function dateFormatJJMMAAAA($date)
+	function nbOperation()
 	{
-	    list($year, $month, $day) = explode('-', $date);
+		$unModele = connexionBDD();
 
-	    return "$day / $month / $year";
+		$unModele->renseigner("Operations");
+
+		$nbOperation = $unModele->selectCountOnly();
+		
+		return $nbOperation;
 	}
 
-	function dateFormatAAAAMMJJ($date)
+	function selectOperation()
 	{
-	    list($day, $month, $year) = explode('/', $date);
+		$unModele = connexionBDD();
 
-	    return "$year-$month-$day";
+		$unModele->renseigner("Operations");
+
+		$resultatOperation = $unModele->selectDistinct("libelle_Operation");
+
+		return $resultatOperation;
 	}
 
-	function timeFormatNh($heure)
+	function selectMarque()
 	{
-		list($h, $min, $s) = explode(':', $heure);
+		$unModele = connexionBDD();
 
-		return "$h";
+		$unModele->renseigner("TypeVehicules");
+
+		$resultatMarque = $unModele->selectDistinct("marque_Vehicule");
+
+		return $resultatMarque;
+	}
+
+	function selectModele($marque)
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("TypeVehicules");
+
+		$champs = array("modele_Vehicule");
+ 
+		$tab = array( 
+			"marque_Vehicule"=>$marque
+			);
+
+		$resultatModele = $unModele->selectWhereAll($champs, $tab);
+
+		return $resultatModele;
 	}
 
 	function vehiculeClient($idc)
@@ -144,62 +170,5 @@
 		$resultatVehicule = $unModele->selectWhere($champs, $tab);
 
 		return $resultatVehicule;
-	}
-
-	function ValiderReservation()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("RDV");
-
-		$tab = array(
-				"ID_Vehicule"=>$_POST['ID_Vehicule'],
-				"ID_Client"=>$_SESSION['ID_Client'],
-				"date_RDV"=>$_POST['date_RDV'],
-				"heure_RDV"=>$_POST['heure_RDV'],
-				"raison_RDV"=>$_POST['raison_RDV']
-			);
-
-		$unModele->insert($tab);
-	}
-
-	function selectRDVDate()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("v_RDVClientVehicule");
-
-		$champs = array(
-				"ID_RDV",
-				"ID_Vehicule",
-				"marque_Vehicule",
-				"modele_Vehicule",
-				"immat_Vehicule",
-				"date_RDV",
-				"heure_RDV"
-			);
- 
-		$tab = array(
-				"date_RDV"=>dateFormatAAAAMMJJ($_POST['DateReservation'])
-			);
-
-		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
-
-		return $resultatVehicule;
-	}
-
-	function nbRDVDate()
-	{
-		$unModele = connexionBDD();
-
-		$unModele->renseigner("v_RDVClientVehicule");
-
-		$tab = array(
-				"date_RDV"=>dateFormatAAAAMMJJ($_POST['DateReservation'])
-			);
-
-		$resultat = $unModele->selectCount($tab);
-		
-		return $resultat;
 	}
 ?>

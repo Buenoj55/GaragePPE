@@ -84,6 +84,14 @@
 	$user_os        =   getOS();
 	$user_browser   =   getBrowser();
 
+	function connexionBDD()
+	{
+		$user_os = getOS();
+
+		if ($user_os != 'Mac OS X') { return $unModele = new Modele("localhost", "Garage", "root", ""); }
+		else { return $unModele = new Modele("localhost", "Garage", "root", "root"); }
+	}
+
 /* General */
 
 	function dateFormatJJMMAAAA($date)
@@ -111,10 +119,7 @@
 
 	function Inscription()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Particuliers");
 
@@ -137,10 +142,7 @@
 
 	function InscriptionEntreprise()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Entreprises");
 
@@ -162,10 +164,7 @@
 
 	function Connexion()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Particuliers");
 
@@ -181,10 +180,7 @@
 
 	function ConnexionEntreprise()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Entreprises");
 
@@ -200,10 +196,7 @@
 
 	function selectInfo()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Particuliers");
 
@@ -218,10 +211,7 @@
 
 	function selectInfoEnt()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Entreprises");
 
@@ -236,10 +226,7 @@
 	
 	function verifInscription()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Clients");
 
@@ -256,10 +243,7 @@
 
 	function selectMarque()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -270,10 +254,7 @@
 
 	function selectModele($marque)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -290,10 +271,7 @@
 
 	function selectNbModele($marque)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -306,12 +284,9 @@
 		return $resultatModele;
 	}
 
-	function selectTypeVehicule()
+	function selectIDTypeVehicule()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("TypeVehicules");
 
@@ -329,10 +304,7 @@
 
 	function selectIDClient()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Clients");
 
@@ -349,10 +321,7 @@
 
 	function ajoutVehicule($idtv, $idc)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Vehicules");
 
@@ -368,29 +337,9 @@
 		$unModele->insert($tab);
 	}
 
-	function ajoutVehicule2($idtv, $idc)
-	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
-
-		$unModele->renseigner("Vehicules");
-
-		$tab = array(
-				"ID_TypeVehicule"=>$idtv,
-				"ID_Client"=>$idc
-			);
-
-		$unModele->insert($tab);
-	}
-
 	function vehiculeClient($idc)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("v_ClientAndVehicule");
 
@@ -415,10 +364,7 @@
 
 	function nbVehicule()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Vehicules");
 
@@ -433,10 +379,7 @@
 
 	function selectRDV()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("v_RDVClientVehicule");
 
@@ -461,10 +404,7 @@
 
 	function nbRDV()
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("v_RDVClientVehicule");
 
@@ -479,10 +419,7 @@
 
 	function deleteVehicule($idv)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("Vehicules");
 
@@ -495,10 +432,7 @@
 
 	function deleteRDV($idrdv)
 	{
-		$user_os = getOS();
-
-		if ($user_os != 'Mac OS X') { $unModele = new Modele("localhost", "Garage", "root", ""); }
-		else { $unModele = new Modele("localhost", "Garage", "root", "root"); }
+		$unModele = connexionBDD();
 
 		$unModele->renseigner("RDV");
 

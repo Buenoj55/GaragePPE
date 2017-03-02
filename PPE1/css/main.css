@@ -2554,4 +2554,20 @@ shortcodes page css
   color: #333;
 }
 
+.btn-secondary {
+  padding: 8px 20px;
+  color: #c52d2f;
+  background: #fff;
+  border-color: #c52d2f;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.btn-secondary:hover, 
+.btn-secondary:focus{
+  background: #c52d2f;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+} 
 

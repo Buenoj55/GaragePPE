@@ -154,8 +154,12 @@
 
       $requete = "INSERT INTO ".$this->table." (".$listeChamps.") VALUES (".$chaineChamps.");";
 
+      var_dump($requete);
+
       $insert = $this->pdo->prepare($requete);
       $insert->execute($donnees);
+
+      var_dump($donnees);
     }
 
     public function update($tab, $where)
@@ -196,6 +200,9 @@
       $chaineClause = implode(" AND ", $clause);
 
       $requete = "DELETE FROM ".$this->table." WHERE ".$chaineClause.";";
+
+      var_dump($requete);
+
       $delete = $this->pdo->prepare($requete);
       $delete->execute($donnees);
     }

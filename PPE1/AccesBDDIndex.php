@@ -74,7 +74,7 @@
 
 		$unModele->renseigner("Operations");
 
-		$resultatOperation = $unModele->selectDistinct("libelle_Operation");
+		$resultatOperation = $unModele->selectAll();
 
 		return $resultatOperation;
 	}

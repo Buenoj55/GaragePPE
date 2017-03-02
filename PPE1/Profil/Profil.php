@@ -16,14 +16,22 @@
 <body>
     <?php include("../header.php"); ?>
 
-    <section id="feature" class="transparent-bg">
+    <section id="Profil" class="transparent-bg">
         <div class="container">
             <div class="center wow fadeInDown">
             	<h2> <?php 
             			if (isset($_SESSION['nom_Client'])) { echo $_SESSION['prenom_Particulier'].' '.$_SESSION['nom_Client']; }
             			else if (isset($_SESSION['nom_Client'])) { echo $_SESSION['nom_Client']; }
             		?> </h2>
+        		<h3 class="pull-right"><a href="#">Informations personnelles</a></h3>
             </div>
+
+            <div>
+            	<div class="col-lg-3 center"><a class="btn btn-secondary" href="#Vehicule">Véhicule</a></div>
+            	<div class="col-lg-3 center"><a class="btn btn-secondary" href="#AjoutVehicule">Ajouter un véhicule</a></div>
+            	<div class="col-lg-3 center"><a class="btn btn-secondary" href="#Calendrier">Rendez-vous</a></div>
+            	<div class="col-lg-3 center"><a class="btn btn-secondary" href="#Devis">Devis</a></div>
+	        </div>
 
             <div id="Vehicule" class="center wow fadeInDown col-lg-12">
             	<h3>Vos véhicules</h3>
@@ -208,6 +216,98 @@
 				        }
 				    }
 			    ?>
+            </div>
+
+            <div id="Devis" class="center wow fadeInDown col-lg-12">
+				<h3>Vos devis</h3>
+
+				<div class="table-responsive col-lg-11">
+					<table class="table table-striped table-hover">
+						<thead>
+							<th class="col-lg-1">N°</th>
+							<th class="col-lg-2">Date</th>
+							<th class="col-lg-3">Véhicule</th>
+							<th class="col-lg-4">Opération</th>
+							<th class="col-lg-1">Lien</th>
+							<th class="col-lg-1"></th>
+						</thead>
+					</table>
+					
+					<?php
+						$nbDevis = selectNbDevis();
+						$resultatDevis = selectDevis();
+
+						for ($i = 0; $i < $nbDevis['nb'] ; $i++)
+						{ 
+                			$resultatVehicule = vehiculeDevis($resultatDevis[$i]['1']);
+                			$resultatOperation = operationDevis($resultatDevis[$i]['2']);
+							
+							echo '<form method="post" action="showDevis.php">
+									<table class="table table-hover">
+										<tbody>
+											<tr>
+												<td class="col-lg-1">'.$resultatDevis[$i]['0'].'</td>
+												<td class="col-lg-2">'.dateFormatJJMMAAAA($resultatDevis[$i]['3']).'</td>
+												<td class="col-lg-3"><strong>'.$resultatVehicule['marque_Vehicule'].' '.$resultatVehicule['modele_Vehicule'].'</strong> - '.$resultatVehicule['immat_Vehicule'].'</td>
+												<td class="col-lg-4">'.$resultatOperation['libelle_Operation'].'</td>
+												<td class="col-lg-1"><button type="submit" name="link'.$i.'" class="btn btn-danger">Devis n°'.$resultatDevis[$i]['0'].'
+													<input type="hidden" name="NUM_Devis" value="'.$resultatDevis[$i]['0'].'">
+													<input type="hidden" name="ID_Vehicule" value="'.$resultatDevis[$i]['1'].'">
+													<input type="hidden" name="ID_Operation" value="'.$resultatDevis[$i]['2'].'">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>';
+						}
+					?>				
+				</div>
+
+				<div class="table-responsive col-lg-1">
+					<table class="table table-hover">
+						<thead>
+							<th> - </th>
+						</thead>
+
+						<?php
+							$nbDevis = selectNbDevis();
+							$resultatDevis = selectDevis();
+
+							for ($i = 0; $i < $nbDevis['nb'] ; $i++)
+							{
+								echo '<form method="post">
+										<table class="table table-hover">
+											<tbody>
+												<tr>
+													<td><button type="submit" name="Delete'.$i.'" class="btn btn-danger">X</button></td>
+												</tr>
+											</tbody>
+										</table>
+									</form>';
+							}
+						?>
+					</table>
+				</div>
+
+				<?php
+					$nbDevis = selectNbDevis();
+					$resultatDevis = selectDevis();
+
+					for ($i = 0; $i < $nbDevis['nb'] ; $i++)
+					{
+	        			if (isset($_POST['Delete'.$i]))
+	        			{
+	        				deleteDevis($resultatDevis[$i]['0']);
+
+	        				echo '<script language="Javascript">
+	                        <!--
+	                        document.location.replace("Profil.php");
+	                        // -->
+	                        </script>';
+	        			}
+	        		}
+        		?>
+
             </div>
         </div><!--/.container-->
     </section><!--/#contact-page--> 

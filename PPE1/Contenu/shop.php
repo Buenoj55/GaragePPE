@@ -20,7 +20,7 @@
         <div class="container">
             <div class="center">
                <h2>Shop</h2>
-               <p class="lead">Vous trouverez ici les différentes pièces dont nous disposons dans notre stock.</p>
+               <h3>Vous trouverez ici les différentes pièces dont nous disposons dans notre stock.</h3>
             </div>
         
 

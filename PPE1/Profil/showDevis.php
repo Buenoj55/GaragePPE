@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include('AccesBDDOperation.php');
+	include('../Devis/AccesBDDOperation.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,11 +11,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Devis</title>
-<?php include('../head.php') ?>
+<?php include("../head.php"); ?>
 
 <body>
-    <?php include('../header.php') ?>
-
     <section id="Devis">
         <div class="container">
         	<div class="col-lg-12">
@@ -29,7 +27,7 @@
         			<h3>Garage automobile</h3>
         		</div>
         		<div class="col-lg-6 center">
-        			<h1>Devis</h1>
+        			<h1>Devis n° <?php echo $_POST['NUM_Devis']; ?> </h1>
         		</div>
         		<div class="col-lg-12">
                     <?php 
@@ -39,19 +37,10 @@
                         $marque = '';
         				$modele = '';
 
-        				if (isset($_POST['marque_Vehicule']) && $_POST['marque_Vehicule'] != '-- Marques --')
-        				{
-        					echo '<h3>Pour un véhicule : <strong>'.$_POST['marque_Vehicule'].' '.$_POST['modele_Vehicule'].'</strong></h3>';
-
-        					$marque = $_POST['marque_Vehicule'];
-        					$modele = $_POST['modele_Vehicule'];
-        				}
-        				if (isset($_SESSION['ID_Client']))
+                        if (isset($_SESSION['ID_Client']))
         				{
 	        				if (isset($_POST['ID_Vehicule']) && $_POST['ID_Vehicule'] != '-- Véhicules --')
 	        				{
-                                ajoutDevis();
-
                                 $resultatTypeVehicule = selectTypeVehicule();
 
 	        					echo '<h3>A l\'attention de <strong>'.$_SESSION['nom_Client'].' '.$_SESSION['prenom_Particulier'].'</strong></h3>';
@@ -104,7 +93,8 @@
         		</div>
         		<div class="col-lg-12 margin-top">
         			<h3>Merci d'avoir choisi <strong>Speedy</strong> pour réaliser cette préstation.</h3>
-        			<div class="col-lg-12">
+        			
+                    <div>
         				<h3 class="pull-right">Fait à Paris, le <?php if(date('j') < 10) { echo '0'; } echo date('j \/ m \/ Y'); ?></h3>
         			</div>
         		</div>
@@ -112,21 +102,7 @@
         </div><!--/.container-->
     </section><!--/#Devis-->
 
-    <section>
-        <div class="container">
-            <?php
-        		if (!isset($_SESSION['ID_Client']))
-        		{
-        			echo '<h3>Pour recevoir un <strong>devis définitif</strong> en votre nom, veuillez vous connecter <a class="btn btn-primary" href="../Connexion/Connexion.php">Se connecter</a></h3>';
-        		}
-                else
-                {
-                    echo '<h3>Ce devis est enregistré sur votre profil que vous pouvez visionner <a class="btn btn-primary" href="../Profil/Profil.php">ici</a></h3>';
-                }
-        	?>
-        </div>
-    </section>
-
-    <?php include('../footer.php'); ?>
-</body>
+    <footer>
+        
+    </footer>
 </html>

@@ -84,7 +84,7 @@
 		$champs = array("prix_Operation");
  
 		$tab = array(
-			"libelle_Operation"=>$_POST['libelle_Operation']
+			"ID_Operation"=>$_POST['ID_Operation']
 			);
 
 		$resultatPrixOp = $unModele->selectWhere($champs, $tab);
@@ -109,5 +109,37 @@
 		$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
 
 		return $resultatTypeVehicule;
+	}
+
+	function selectLibelleOperation()
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Operations");
+
+		$champs = array("libelle_Operation");
+ 
+		$tab = array(
+			"ID_Operation"=>$_POST['ID_Operation']
+			);
+
+		$resultatTypeVehicule = $unModele->selectWhere($champs, $tab);
+
+		return $resultatTypeVehicule;
+	}
+
+	function ajoutDevis()
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Devis");
+
+		$tab = array(
+				"ID_Client"=>$_SESSION['ID_Client'],
+				"ID_Vehicule"=>$_POST['ID_Vehicule'],
+				"ID_Operation"=>$_POST['ID_Operation']
+			);
+
+		$unModele->insert($tab);
 	}
 ?>

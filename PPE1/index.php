@@ -39,7 +39,7 @@
                                     <form method="post" action="Devis/Devis.php">
                                         <h2 class="animation animated-item-1">Que concerne votre demande ?</h2>
 
-                                        <select name="libelle_Operation" class="form-control">
+                                        <select name="ID_Operation" class="form-control">
                                             <?php
                                                 $nbOperation = nbOperation();
                                                 $resultatOperation = selectOperation();
@@ -47,7 +47,7 @@
 
                                                 for ($i = 0 ; $i < $nbOperation['nb'] ; $i++)
                                                 { 
-                                                    echo '<option value="'.$resultatOperation[$i]['0'].'">'.$resultatOperation[$i]['0'].'</option>';
+                                                    echo '<option value="'.$resultatOperation[$i]['0'].'">'.$resultatOperation[$i]['1'].'</option>';
                                                 }
                                             ?>
                                         </select>
@@ -106,13 +106,13 @@
                                                 else
                                                 { 
                                                     echo '<h3>Vous n\'avez pas enregistré de véhicule.</h3>
-                                                                <h4><span class="label label-warning">Veuillez en enresgistrer sur votre profil <a href="../Profil/Profil.php">ici</a></span></h4>'; 
+                                                                <h4><span class="label label-warning">Veuillez enresgistrer un véhicule sur votre profil <a href="../Profil/Profil.php">ici</a></span></h4>'; 
                                                 }
                                                 echo '</div>';
                                             }
                                         ?>
 
-                                        <button class="btn-slide animation animated-item-3 margin-top">Recevoir un devis</button>
+                                        <button class="btn-slide animation animated-item-3">Recevoir un devis</button>
                                     </form>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">Prendre rendez-vous</h1>
                                     <h2 class="animation animated-item-2">Vous pouvez prendre rendez-vous dès maintenant dans notre garage. Simplement et rapidement.</h2>
-                                    <h3 class="animation animated-item-3">Toute notre équipe vous attend pour répondre à toutes vos attentes.</h3>
+                                    <h3 class="animation animated-item-3">Toute notre équipe est à votre disposition pour répondre à toutes vos attentes.</h3>
                                     <a class="btn-slide animation animated-item-3" href="Reservation/Reservation.php">Réserver maintenant</a>
                                 </div>
                             </div>

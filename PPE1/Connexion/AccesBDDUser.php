@@ -442,4 +442,94 @@
 
 		$resultat = $unModele->delete($tab);
 	}
+
+	function selectNbDevis()
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Devis");
+
+		$tab = array(
+				"ID_Client" => $_SESSION['ID_Client']
+			);
+
+		$resultat = $unModele->selectCount($tab);
+		
+		return $resultat;
+	}
+
+	function selectDevis()
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Devis");
+
+		$champs = array(
+				"Num_Devis",
+				"ID_Vehicule",
+				"ID_Operation",
+				"date_Devis"
+			);
+ 
+		$tab = array(
+				"ID_Client"=>$_SESSION['ID_Client']
+			);
+
+		$resultatVehicule = $unModele->selectWhereAll($champs, $tab);
+
+		return $resultatVehicule;
+	}
+
+	function vehiculeDevis($idV)
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("v_ClientAndVehicule");
+
+		$champs = array(
+				"marque_Vehicule",
+				"modele_Vehicule",
+				"immat_Vehicule"
+			);
+ 
+		$tab = array(
+				"ID_Vehicule"=>$idV
+			);
+
+		$resultatVehicule = $unModele->selectWhere($champs, $tab);
+
+		return $resultatVehicule;
+	}
+
+	function operationDevis($idO)
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Operations");
+
+		$champs = array(
+				"libelle_Operation"
+			);
+ 
+		$tab = array(
+				"ID_Operation"=>$idO
+			);
+
+		$resultatOperation = $unModele->selectWhere($champs, $tab);
+
+		return $resultatOperation;
+	}
+
+	function deleteDevis($idD)
+	{
+		$unModele = connexionBDD();
+
+		$unModele->renseigner("Devis");
+
+		$tab = array(
+				"NUM_Devis" => $idD
+			);
+
+		$resultat = $unModele->delete($tab);
+	}
 ?>

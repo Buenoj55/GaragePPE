@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS RDV
    RAISON_RDV CHAR(32) NULL
    , PRIMARY KEY (ID_RDV)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE RDV
@@ -37,11 +37,12 @@ CREATE TABLE IF NOT EXISTS DEVIS
  (
    NUM_DEVIS INTEGER NOT NULL AUTO_INCREMENT ,
    ID_CLIENT INTEGER NOT NULL  ,
-   ESTIMATION_DEVIS BIGINT(4) NULL  ,
+   ID_VEHICULE INTEGER NOT NULL  ,
+   ID_OPERATION INTEGER NOT NULL  ,
    DATE_DEVIS DATE NULL
    , PRIMARY KEY (NUM_DEVIS)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE DEVIS
@@ -50,6 +51,12 @@ CREATE TABLE IF NOT EXISTS DEVIS
 
 CREATE  INDEX I_FK_DEVIS_CLIENTS
      ON DEVIS (ID_CLIENT ASC);
+
+CREATE  INDEX I_FK_DEVIS_VEHICULES
+     ON DEVIS (ID_VEHICULE ASC);
+
+CREATE  INDEX I_FK_DEVIS_OPERATIONS
+     ON DEVIS (ID_OPERATION ASC);
 
 # -----------------------------------------------------------------------------
 #       TABLE : PIECES
@@ -64,7 +71,7 @@ CREATE TABLE IF NOT EXISTS PIECES
    QUANTITE_PIECE BIGINT(4) NULL
    , PRIMARY KEY (ID_PIECE)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : OPERATIONS
@@ -100,33 +107,7 @@ CREATE TABLE IF NOT EXISTS PARTICULIERS
    ETAT_CLIENT BOOL NULL
    , PRIMARY KEY (ID_CLIENT)
  )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : INTERVENTIONS
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS INTERVENTIONS
- (
-   NUM_INTERVENTION CHAR(32) NOT NULL  ,
-   ID_FACTURE INTEGER NOT NULL  ,
-   ID_VEHICULE INTEGER NOT NULL  ,
-   DATE_INTERVENTION DATE NULL  ,
-   DUREE_INTERVENTION TIME NULL
-   , PRIMARY KEY (NUM_INTERVENTION)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE INTERVENTIONS
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_INTERVENTIONS_FACTURES
-     ON INTERVENTIONS (ID_FACTURE ASC);
-
-CREATE  INDEX I_FK_INTERVENTIONS_VEHICULES
-     ON INTERVENTIONS (ID_VEHICULE ASC);
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : TYPEVEHICULES
@@ -140,29 +121,7 @@ CREATE TABLE IF NOT EXISTS TYPEVEHICULES
    COEFF_VEHICULE DECIMAL(10,2) NULL
    , PRIMARY KEY (ID_TYPEVEHICULE)
  )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : FACTURES
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS FACTURES
- (
-   ID_FACTURE INTEGER NOT NULL AUTO_INCREMENT ,
-   ID_CLIENT INTEGER NOT NULL  ,
-   MONTANT_FACTURE INTEGER NULL  ,
-   URLPDF CHAR(32) NULL
-   , PRIMARY KEY (ID_FACTURE)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE FACTURES
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_FACTURES_CLIENTS
-     ON FACTURES (ID_CLIENT ASC);
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : VEHICULES
@@ -179,7 +138,7 @@ CREATE TABLE IF NOT EXISTS VEHICULES
    COULEUR_VEHICULE CHAR(32) NULL
    , PRIMARY KEY (ID_VEHICULE)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE VEHICULES
@@ -204,7 +163,7 @@ CREATE TABLE IF NOT EXISTS TECHNICIENS
    DATEEMBAUCHE_TECHNICIEN DATE NULL
    , PRIMARY KEY (ID_TECHNICIEN)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : CLIENTS
@@ -223,7 +182,7 @@ CREATE TABLE IF NOT EXISTS CLIENTS
    ETAT_CLIENT BOOL NULL
    , PRIMARY KEY (ID_CLIENT)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : ENTREPRISES
@@ -244,53 +203,7 @@ CREATE TABLE IF NOT EXISTS ENTREPRISES
    ETAT_CLIENT BOOL NULL
    , PRIMARY KEY (ID_CLIENT)
  )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : DEPENDRE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS DEPENDRE
- (
-   ID_VEHICULE INTEGER NOT NULL  ,
-   ID_OPERATION INTEGER NOT NULL
-   , PRIMARY KEY (ID_VEHICULE,ID_OPERATION)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE DEPENDRE
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_DEPENDRE_VEHICULES
-     ON DEPENDRE (ID_VEHICULE ASC);
-
-CREATE  INDEX I_FK_DEPENDRE_OPERATIONS
-     ON DEPENDRE (ID_OPERATION ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : NECESSITER
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS NECESSITER
- (
-   ID_OPERATION INTEGER NOT NULL  ,
-   NUM_INTERVENTION CHAR(32) NOT NULL
-   , PRIMARY KEY (ID_OPERATION,NUM_INTERVENTION)
- )
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE NECESSITER
-# -----------------------------------------------------------------------------
-
-
-CREATE  INDEX I_FK_NECESSITER_OPERATIONS
-     ON NECESSITER (ID_OPERATION ASC);
-
-CREATE  INDEX I_FK_NECESSITER_INTERVENTIONS
-     ON NECESSITER (NUM_INTERVENTION ASC);
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       TABLE : CALCULER
@@ -299,10 +212,12 @@ CREATE  INDEX I_FK_NECESSITER_INTERVENTIONS
 CREATE TABLE IF NOT EXISTS CALCULER
  (
    NUM_DEVIS INTEGER NOT NULL  ,
-   ID_OPERATION INTEGER NOT NULL
-   , PRIMARY KEY (NUM_DEVIS,ID_OPERATION)
+   HT_DEVIS DECIMAL(10,2) NULL  ,
+   TVA_DEVIS DECIMAL(10,2) NULL  ,
+   TTC_DEVIS DECIMAL(10,2) NOT NULL
+   , PRIMARY KEY (NUM_DEVIS)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE CALCULER
@@ -312,9 +227,6 @@ CREATE TABLE IF NOT EXISTS CALCULER
 CREATE  INDEX I_FK_CALCULER_DEVIS
      ON CALCULER (NUM_DEVIS ASC);
 
-CREATE  INDEX I_FK_CALCULER_OPERATIONS
-     ON CALCULER (ID_OPERATION ASC);
-
 # -----------------------------------------------------------------------------
 #       TABLE : COMPOSER
 # -----------------------------------------------------------------------------
@@ -322,10 +234,11 @@ CREATE  INDEX I_FK_CALCULER_OPERATIONS
 CREATE TABLE IF NOT EXISTS COMPOSER
  (
    ID_OPERATION INTEGER NOT NULL  ,
-   ID_PIECE INTEGER NOT NULL
+   ID_PIECE INTEGER NOT NULL  ,
+   NB_PIECE INT NOT NULL
    , PRIMARY KEY (ID_OPERATION,ID_PIECE)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE COMPOSER
@@ -339,28 +252,25 @@ CREATE  INDEX I_FK_COMPOSER_PIECES
      ON COMPOSER (ID_PIECE ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : PLANNING
+#       TABLE : VALIDER
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS PLANNING
+CREATE TABLE IF NOT EXISTS VALIDER
  (
-   ID_TECHNICIEN INTEGER NOT NULL  ,
-   NUM_INTERVENTION CHAR(32) NOT NULL  ,
-   DATEHEUREFIN_AFFECTATION DATETIME NULL
-   , PRIMARY KEY (ID_TECHNICIEN,NUM_INTERVENTION)
+   NUM_DEVIS INTEGER NOT NULL  ,
+   DATE_VALIDATION DATE NULL  ,
+   VALIDATION BOOL
+   , PRIMARY KEY (NUM_DEVIS)
  )
- comment = "";
+ comment = "", charset="UTF8";
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE PLANNING
+#       INDEX DE LA TABLE VALIDER
 # -----------------------------------------------------------------------------
 
 
-CREATE  INDEX I_FK_PLANNING_TECHNICIENS
-     ON PLANNING (ID_TECHNICIEN ASC);
-
-CREATE  INDEX I_FK_PLANNING_INTERVENTIONS
-     ON PLANNING (NUM_INTERVENTION ASC);
+CREATE  INDEX I_FK_VALIDER_DEVIS
+     ON VALIDER (NUM_DEVIS ASC);
 
 
 # -----------------------------------------------------------------------------
@@ -383,19 +293,14 @@ ALTER TABLE DEVIS
       REFERENCES CLIENTS (ID_CLIENT) ;
 
 
-ALTER TABLE INTERVENTIONS
-  ADD FOREIGN KEY FK_INTERVENTIONS_FACTURES (ID_FACTURE)
-      REFERENCES FACTURES (ID_FACTURE) ;
-
-
-ALTER TABLE INTERVENTIONS
-  ADD FOREIGN KEY FK_INTERVENTIONS_VEHICULES (ID_VEHICULE)
+ALTER TABLE DEVIS
+  ADD FOREIGN KEY FK_DEVIS_VEHICULES (ID_VEHICULE)
       REFERENCES VEHICULES (ID_VEHICULE) ;
 
 
-ALTER TABLE FACTURES
-  ADD FOREIGN KEY FK_FACTURES_CLIENTS (ID_CLIENT)
-      REFERENCES CLIENTS (ID_CLIENT) ;
+ALTER TABLE DEVIS
+  ADD FOREIGN KEY FK_DEVIS_OPERATIONS (ID_OPERATION)
+      REFERENCES OPERATIONS (ID_OPERATION) ;
 
 
 ALTER TABLE VEHICULES
@@ -408,34 +313,9 @@ ALTER TABLE VEHICULES
       REFERENCES CLIENTS (ID_CLIENT) ;
 
 
-ALTER TABLE DEPENDRE
-  ADD FOREIGN KEY FK_DEPENDRE_VEHICULES (ID_VEHICULE)
-      REFERENCES VEHICULES (ID_VEHICULE) ;
-
-
-ALTER TABLE DEPENDRE
-  ADD FOREIGN KEY FK_DEPENDRE_OPERATIONS (ID_OPERATION)
-      REFERENCES OPERATIONS (ID_OPERATION) ;
-
-
-ALTER TABLE NECESSITER
-  ADD FOREIGN KEY FK_NECESSITER_OPERATIONS (ID_OPERATION)
-      REFERENCES OPERATIONS (ID_OPERATION) ;
-
-
-ALTER TABLE NECESSITER
-  ADD FOREIGN KEY FK_NECESSITER_INTERVENTIONS (NUM_INTERVENTION)
-      REFERENCES INTERVENTIONS (NUM_INTERVENTION) ;
-
-
 ALTER TABLE CALCULER
   ADD FOREIGN KEY FK_CALCULER_DEVIS (NUM_DEVIS)
       REFERENCES DEVIS (NUM_DEVIS) ;
-
-
-ALTER TABLE CALCULER
-  ADD FOREIGN KEY FK_CALCULER_OPERATIONS (ID_OPERATION)
-      REFERENCES OPERATIONS (ID_OPERATION) ;
 
 
 ALTER TABLE COMPOSER
@@ -448,11 +328,6 @@ ALTER TABLE COMPOSER
       REFERENCES PIECES (ID_PIECE) ;
 
 
-ALTER TABLE PLANNING
-  ADD FOREIGN KEY FK_PLANNING_TECHNICIENS (ID_TECHNICIEN)
-      REFERENCES TECHNICIENS (ID_TECHNICIEN) ;
-
-
-ALTER TABLE PLANNING
-  ADD FOREIGN KEY FK_PLANNING_INTERVENTIONS (NUM_INTERVENTION)
-      REFERENCES INTERVENTIONS (NUM_INTERVENTION) ;
+ALTER TABLE VALIDER
+  ADD FOREIGN KEY FK_VALIDER_DEVIS (NUM_DEVIS)
+      REFERENCES DEVIS (NUM_DEVIS) ;

@@ -22,19 +22,19 @@ INSERT INTO PARTICULIERS (CIVILITE_PARTICULIER, PRENOM_PARTICULIER, DATENAISS_PA
 
 
 INSERT INTO  OPERATIONS (LIBELLE_OPERATION, PRIX_OPERATION, DUREEESTIME_OPERATION) VALUES
-			 	('Vidange',70.0,'01:00:00'),
-			 	('Controle technique',85.0,'00:20:00'),
-			 	('Peinture exterieure',250.0,'06:00:00'),
-			 	('Pose d\'un pneu',10.0,'00:15:00'),
-			 	('Pose des disques et des plaquettes de frein',140.0,'03:00:00'),
-			 	('Entretien climatisation',50.0,'01:00:00'),
-			 	('Changement de batterie',30.0,'00:30:00'),
-			 	('Rénovation des phares avant',60.0,'01:00:00'),
-			 	('Rénovation des phares arrière',60.0,'01:00:00'),
-			 	('Remplacement de la courroie de distribution',60.0,'01:00:00'),
-			 	('Remplacement du pot d\'échappement',20.0,'00:30:00'),
-			 	('Montage de plaque d\'immatriculation',5.0,'00:15:00'),
-			 	('Remplacement de la boite de vitesse',300.0,'04:00:00');
+			 	('Vidange', 70.0, '01:00:00'),
+			 	('Controle technique' ,85.0, '00:20:00'),
+			 	('Peinture exterieure', 250.0, '06:00:00'),
+			 	('Pose d\'un pneu', 10.0, '00:15:00'),
+			 	('Pose des disques et des plaquettes de frein', 140.0, '03:00:00'),
+			 	('Entretien climatisation', 50.0, '01:00:00'),
+			 	('Changement de batterie', 30.0, '00:30:00'),
+			 	('Rénovation des phares avant', 60.0, '01:00:00'),
+			 	('Rénovation des phares arrière', 60.0, '01:00:00'),
+			 	('Remplacement de la courroie de distribution', 60.0, '01:00:00'),
+			 	('Remplacement du pot d\'échappement', 20.0, '00:30:00'),
+			 	('Montage de plaque d\'immatriculation', 5.0, '00:15:00'),
+			 	('Remplacement de la boite de vitesse', 300.0, '04:00:00');
 
 
 INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'),
@@ -109,3 +109,26 @@ INSERT INTO TYPEVEHICULES (MARQUE_VEHICULE, MODELE_VEHICULE) VALUES ('Audi','A1'
 				 ('Volkswagen','Polo'),
 				 ('Volkswagen','Tiguan'),
 				 ('Volkswagen','Up!');
+
+
+INSERT INTO VEHICULES (ID_TYPEVEHICULE, ID_CLIENT, IMMAT_VEHICULE, DATEACHAT_VEHICULE, KM_VEHICULE, COULEUR_VEHICULE) VALUES
+				(3, 3, 'AB-123-AB', '2012-11-25', 100000, 'Noir'),
+				(12, 3, 'AB-123-AB', '2013-11-25', 50000, 'Blanc'),
+				(34, 3, 'AB-123-AB', '2014-11-25', 20000, 'Gris');
+
+
+INSERT INTO RDV (ID_VEHICULE, ID_CLIENT, DATE_RDV, HEURE_RDV) VALUES
+				(1, 3, '2017-03-15', '13:00:00'),
+				(2, 3, '2017-03-27', '16:00:00');
+
+
+INSERT INTO COMPOSER (ID_OPERATION, ID_PIECE, NB_PIECE) VALUES
+				(8, 12, 2),
+				(9, 12, 2),
+				(5, 1, 1),
+				(5, 2, 1);
+				
+
+INSERT INTO DEVIS (ID_CLIENT, ID_VEHICULE, ID_OPERATION, DATE_DEVIS) VALUES
+				(3, 1, 8, '2017-03-01'),
+				(3, 2, 5, '2017-03-01');

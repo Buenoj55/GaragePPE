@@ -23,7 +23,9 @@
                     <form method="post">
                         <h2 class="animation animated-item-1">Prendre rendez-vous</h2>
 
-                        <div class="col-lg-6">
+                        <h3 class="animation animated-item-2">Vous pouvez prendre rendez-vous dès maintenant dans notre garage, rapidement et simplement.</h3>
+
+                        <div class="col-lg-6 margin-top">
                             <legend>Sélectionner la date de réservation : </legend>
 
                             <div class="datepicker-wrap col-lg-6">
@@ -70,7 +72,7 @@
                         </div>
 
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 margin-top">
                             <legend>Sélectionner un véhicule :</legend>
 
                             <?php
@@ -89,7 +91,7 @@
                                     echo '</select>';
                                 }
                                 else { echo '<h3>Vous n\'avez pas enregistré de véhicule.</h3>
-                                                <h4><span class="label label-warning">Veuillez en enresgistrer sur votre profil <a href="../Profil/Profil.php">ici</a></span></h4>'; }
+                                                <h4><span class="label label-warning">Veuillez enresgistrer un véhicule sur votre profil <a href="../Profil/Profil.php">ici</a></span></h4>'; }
                             ?>
 
                             <button type="submit" class="btn btn-primary btn-lg" value="SelectionDate" name="SelectionDate">Vérifier les disponibilités</button>
